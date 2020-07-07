@@ -1598,6 +1598,522 @@ function sortQuestion(){
 	pushChoice('リカバリ対象の表が含まれるData Pumpダンプファイル', true);
 	pushChoice('補助インスタンスから表領域をトランスポートするためのデータファイル', false);
 	sortChoice();
+	
+	// 114
+	q_list.push(new Question('RMANからテープ装置へバックアップを取得する処理についての説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書75Pを参照'));
+	pushChoice('RMANからテープ装置へバックアップを取得するためには使用するテープ装置に対応したメディア管理ライブラリ（MML）の導入が必要である', true);
+	pushChoice('バックアップセット形式およびイメージコピー形式の両方でバックアップを取得できる', false);
+	pushChoice('デフォルトのバックアップ出力先をテープ装置にするためには、CONFIGURE DEFAULT DEVICE TYPE TO TAPE; を実行する', false);
+	pushChoice('メディア管理ライブラリ（MML)のファイルパスをSBT_LIBRARYに設定する', true);
+	sortChoice();
+	
+	// 115
+	q_list.push(new Question('Oracle Secure Backupの特徴に関する説明として正しいものを3つ選択しなさい。',
+	'GOLD参考書76Pを参照'));
+	pushChoice('データベースの破損状況の確認、破損修復スクリプトの生成、修復作業の実行を自動化できる', false);
+	pushChoice('バックアップの暗号化に対応している', true);
+	pushChoice('テープ装置へのバックアップに必要なメディア管理ライブラリ（MML）を提供する', true);
+	pushChoice('フラッシュバックログを用いてデータベースを過去の状態に戻すことができる', false);
+	pushChoice('ファイルシステムをファイル、ディレクトリ、ファイルシステムまたはRAWパーティションといった様々なレベルでバックアップできる', true);
+	sortChoice();
+	
+	// 116
+	q_list.push(new Question('デフォルトのバックアップ先としてテープ装置を利用するとします。'
+	+ '\nOracle Secure Backupでテープ装置へのバックアップを取得するための構成手順として正しいものを選択しなさい。'
+	+ '\n'
+	+ '\n1.Oracle Secure Backupをインストールする。'
+	+ '\n2.Oracle社のWebサイトからSBTライブラリをダウンロードして配置する'
+	+ '\n3.Oracle Secure Backupを提供するSBTライブラリが導入されていることを確認する'
+	+ '\n4.RMANを実行するOSユーザーに対して、Oracle Secure Backupを用いたバックアップに必要な権限を事前認可する。'
+	+ '\n5.RMANバックアップ用のメディアファミリを作成する。'
+	+ '\n6.テープ装置用のチャネル設定で、SBT_LIBRARYを用いてSBTライブラリの場所を指定する。'
+	+ '\n7.テープ装置用のチャネル設定で、OB_IGNORE_NUMA=0を指定し、NUMA対応を無効化する。'
+	+ '\n8.テープ装置用のチャネル設定で、OB_MEDIA_FAMILYを用いてメディアファミリ名を指定する。',
+	'GOLD参考書76Pを参照'));
+	pushChoice('1 → 2 → 4 → 5 → 7 → 8', false);
+	pushChoice('1 → 2 → 4 → 5 → 6 → 7 → 8', false);
+	pushChoice('1 → 3 → 5 → 7 → 8', false);
+	pushChoice('1 → 2 → 5 → 7 → 8', false);
+	pushChoice('1 → 3 → 4 → 5 → 7 → 8', true);
+	pushChoice('1 → 3 → 4 → 5 → 6 → 7 → 8', false);
+	sortChoice();
+	
+	// 117
+	q_list.push(new Question('UNDO表領域の構成に関する説明として正しいものを選択しなさい。',
+	'GOLD参考書78Pを参照'));
+	pushChoice('初期化パラメータUNDO_RETENTIONにUNDOの保存期間を設定する', true);
+	pushChoice('初期化パラメータUNDO_RETENTION_GUARANTEEにUNDO保存を保証するかを設定する', false);
+	pushChoice('古いデータを参照するフラッシュバック操作を実行したときに、対応するUNDOデータがないと、アーカイブログファイルから古いデータを取得し結果を返す', false);
+	pushChoice('自動UNDO管理を使用する場合、初期化パラメータUNDO_TABLESPACEに"AUTO"を設定する', false);
+	sortChoice();
+	
+	// 118
+	q_list.push(new Question('UNDO表領域が固定サイズの場合におけるUNDO保存の動作に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書79Pを参照'));
+	pushChoice('UNDO保存保証が有効でない場合、UNDO表領域にUNDOデータを保管する空き領域が不足すると、UNDO_RETENTIONで指定された保存期間内であったとしても、古いUNDOデータが上書きされる', true);
+	pushChoice('UNDO保存保証が有効でない場合、UNDO表領域にUNDOデータを保管する空き領域が不足すると、UNDO表領域のサイズが拡張することで、UNDO_RETENTIONで指定された保存期間内のUNDOデータが上書きされないようにする', false);
+	pushChoice('UNDO保存保証が有効な場合、保存期間内のUNDOデータは保存される。ただし、更新処理がエラーで失敗する場合がある', true);
+	pushChoice('UNDO保存保証が有効な場合、UNDO表領域にUNDOデータを保管する空き領域が不足すると、UNDO表領域のサイズが拡張することで、UNDO_RETENTIONで指定された保存期間内のUNDOデータが上書きされないようにする', false);
+	sortChoice();
+	
+	// 119
+	q_list.push(new Question('フラッシュバック問い合わせの特徴に関する説明として正しいものを選択しなさい。',
+	'GOLD参考書80Pを参照'));
+	pushChoice('問い合わせに必要な過去のデータをUNDO表領域のUNDOデータから取得する', true);
+	pushChoice('過去実行された更新処理を確認でき、あわせて、その更新処理を打ち消すSQLを取得できる', false);
+	pushChoice('表のデータを過去の指定した時点の状態に戻すことができる', false);
+	pushChoice('指定した期間内における、行のすべてのバージョン履歴を確認できる', false);
+	sortChoice();
+	
+	// 120
+	q_list.push(new Question('テーブルt1の過去のデータを参照したいと考えています。'
+	+ '\n(X)に入るキーワードとして適切なものを選択しなさい。'
+	+ '\n'
+	+ '\nSELECT * FROM t1'
+	+ '\n  (X) TIMESTAMP TO_TIMESTAMP("18-01-25 20:46;51")'
+	+ '\n  WHERE n=1;',
+	'GOLD参考書80Pを参照'));
+	pushChoice('WHEN', false);
+	pushChoice('AS OF', true);
+	pushChoice('TIME OF', false);
+	pushChoice('IN TIME OF', false);
+	sortChoice();
+	
+	// 121
+	q_list.push(new Question('フラッシュバックバージョン問い合わせの特徴に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書81Pを参照'));
+	pushChoice('問い合わせ実行に必要な過去のデータをフラッシュバックログから取得する', false);
+	pushChoice('VERSIONS BETWEEN句で指定した期間内において、過去実行された更新処理を確認でき、あわせて、その更新処理を打ち消すSQLを取得できる', false);
+	pushChoice('VERSIONS BETWEEN句で指定した期間内における、行のすべてのバージョン履歴を確認できる', true);
+	pushChoice('FLASHBACK_VERSION_QUERYビューから、VERSIONS BETWEEN句で指定した期間内におけるバージョン履歴を確認できる', false);
+	pushChoice('対象の表に、表の構造を変更するDDLを実行すると、DDL実行より前のデータは確認できなくなる', true);
+	sortChoice();
+	
+	// 122
+	q_list.push(new Question('フラッシュバックバージョン問い合わせで使用できる疑似列の組み合わせとして正しいものを選択しなさい。',
+	'GOLD参考書81Pを参照'));
+	pushChoice('VERSIONS_STARTSCN、VERSIONS_ENDSCN、VERSIONS_OPERATION', true);
+	pushChoice('VERSIONS_STARTSCN、VERSIONS_ENDSCN、UNDOSQL', false);
+	pushChoice('VERSIONS_STARTTIME、VERSIONS_ENDTIME、ORIGINAL_NAME', false);
+	pushChoice('VERSIONS_STARTTIME、VERSIONS_ENDTIME、UNDO_SQL', false);
+	sortChoice();
+	
+	// 123
+	q_list.push(new Question('フラッシュバックトランザクション問い合わせの特徴に関する説明として正しいものを選択しなさい。',
+	'GOLD参考書82Pを参照'));
+	pushChoice('VERSIONS BETWEEN句で指定した期間内における、行のすべてのバージョン履歴を確認できる', false);
+	pushChoice('FLASHBACK_TRANSACTION_QUERYビューから過去実行された更新処理、および、その更新処理を打ち消すSQLを取得できる', true);
+	pushChoice('表のデータを過去の指定した時点に戻すことができる', false);
+	pushChoice('トランザクションの依存関係を分析し、指定された方法でトランザクションを取り消すことができる', false);
+	sortChoice();
+	
+	// 124
+	q_list.push(new Question('フラッシュバックトランザクション問い合わせを使用するための前提条件として正しいものを2つ選択しなさい。',
+	'GOLD参考書83Pを参照'));
+	pushChoice('最小サプリメンタル・ロギングの有効化', true);
+	pushChoice('アーカイブログモードでの運用', false);
+	pushChoice('高速リカバリ領域の構成', false);
+	pushChoice('フラッシュバックトランザクション問い合わせを実行するユーザーに対するSELECT ANY TRANSACTIONシステム権限', true);
+	pushChoice('フラッシュバックトランザクション問い合わせを実行するユーザーに対するFLASHBACK ANY TABLEシステム権限', false);
+	pushChoice('フラッシュバックトランザクション問い合わせを実行するユーザーに対するDBMS_FLASHBACKパッケージのEXECUTE権限', false);
+	sortChoice();
+	
+	// 125
+	q_list.push(new Question('フラッシュバックトランザクション問い合わせを使用するための前提条件として正しいものを2つ選択しなさい。',
+	'GOLD参考書83Pを参照'));
+	pushChoice('最小サプリメンタル・ロギングの有効化', true);
+	pushChoice('アーカイブログモードでの運用', false);
+	pushChoice('高速リカバリ領域の構成', false);
+	pushChoice('フラッシュバックトランザクション問い合わせを実行するユーザーに対するSELECT ANY TRANSACTIONシステム権限', true);
+	pushChoice('フラッシュバックトランザクション問い合わせを実行するユーザーに対するFLASHBACK ANY TABLEシステム権限', false);
+	pushChoice('フラッシュバックトランザクション問い合わせを実行するユーザーに対するDBMS_FLASHBACKパッケージのEXECUTE権限', false);
+	sortChoice();
+	
+	// 126
+	q_list.push(new Question('フラッシュバックデータアーカイブの特徴に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書84Pを参照'));
+	pushChoice('UNDOデータのアーカイブ機能を有効にして、UNDO表領域に多くのUNDOデータを保管できるようにする', false);
+	pushChoice('永続表領域に履歴格納用のフラッシュバックデータアーカイブを構成することで、長期間の履歴データを保持できる', true);
+	pushChoice('フラッシュバックデータアーカイブ作成時、履歴データの保持期限を示すRETENTION句の指定は必須である', true);
+	pushChoice('フラッシュバックデータアーカイブ作成時、領域割り当て制限を示すQUOTA句の指定は必須である', false);
+	pushChoice('フラッシュバックデータアーカイブが有効化されている表の名前を変更することはできない', false);
+	pushChoice('フラッシュバックデータアーカイブが有効化されている表の列を削除することはできない', false);
+	sortChoice();
+	
+	// 127
+	q_list.push(new Question('フラッシュバックデータアーカイブを構成し、年単位など非常に古いデータをフラッシュバック問い合わせできるようにする手順として正しいものを選択しなさい。'
+	+ '\n'
+	+ '\n1.フラッシュバックデータアーカイブ用に自動セグメント領域管理方式の表領域を作成する。'
+	+ '\n2.フラッシュバックデータアーカイブ用に手動セグメント領域管理方式の表領域を作成する。'
+	+ '\n3.フラッシュバックデータアーカイブ用の表領域にフラッシュバックデータアーカイブを作成する。'
+	+ '\n4.データベースのSYSAUX表領域にフラッシュバックデータアーカイブを作成する。'
+	+ '\n5.履歴を保存したい表に対してフラッシュバックデータアーカイブを有効化する。'
+	+ '\n6.フラッシュバック問い合わせを実行するユーザーに対して、フラッシュバックデータアーカイブへの参照権限を付与する。',
+	'GOLD参考書85Pを参照'));
+	pushChoice('2 → 3 → 5', false);
+	pushChoice('2 → 3 → 6', false);
+	pushChoice('1 → 3 → 5', true);
+	pushChoice('1 → 3 → 6', false);
+	pushChoice('4 → 5', false);
+	pushChoice('4 → 6', false);
+	sortChoice();
+	
+	// 128
+	q_list.push(new Question('フラッシュバック表を用いて表を過去の状態に戻す場合に、復旧ターゲットから現在までの間で実行することが許されないSQLをすべて選択しなさい。',
+	'GOLD参考書86Pを参照'));
+	pushChoice('DML(UPDATE、INSERT、DELETE)', false);
+	pushChoice('TRUNCATE TABLE文', true);
+	pushChoice('DROP TABLE文', true);
+	pushChoice('ALTER TABLE文', true);
+	sortChoice();
+	
+	// 129
+	q_list.push(new Question('フラッシュバックトランザクションを使用するための前提条件として正しいものをすべて選択しなさい。',
+	'GOLD参考書86Pを参照'));
+	pushChoice('ARCHIVELOGモードであること', true);
+	pushChoice('UNDO保存保証が有効なこと', false);
+	pushChoice('高速リカバリ領域が構成されていること', false);
+	pushChoice('最小および主キーサプリメンタルロギングが有効になっていること', true);
+	pushChoice('フラッシュバックトランザクションの実行ユーザーにDBMS_FLASHBACKパッケージの実行権限があること', true);
+	pushChoice('フラッシュバックトランザクションの実行ユーザーにSELECT ANY TRANSACTIONシステム権限があること', true);
+	sortChoice();
+	
+	// 130
+	q_list.push(new Question('フラッシュバックトランザクションでバックアウト処理を行うDBMS_FLASHBACK.TRANSACTION_BACKOUTにおいて、デフォルトでの依存トランザクションの取り扱いとして正しいものを選択しなさい。',
+	'GOLD参考書87Pを参照'));
+	pushChoice('依存トランザクションを無視して、取り消し対象のトランザクションだけをバックアウトする', false);
+	pushChoice('依存トランザクションが更新していない行についてのみ、バックアウトする', false);
+	pushChoice('依存トランザクションを含めたすべてのトランザクションを、実際に実行された順序とは逆の順序でバックアウトする', false);
+	pushChoice('依存トランザクションが存在する場合、バックアウト処理がエラーで失敗する', true);
+	sortChoice();
+	
+	// 131
+	q_list.push(new Question('RECYCLEBINに同じ表について削除済み表が2つ存在します。'
+	+ '\nこれらの削除済み表が作成される原因となった操作について、適切に説明しなさい。'
+	+ '\n'
+	+ '\nSQL> SHOW RECYCLEBIN;'
+	+ '\n'
+	+ '\nORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE DROP TIME'
+	+ '\n---------------- ------------------------------ ----------- -------------------'
+	+ '\nTAB0             BIN$IORgDWPvRSfgUwEPH6xG6Q==$0 TABLE       2018-01-29:23:13:37'
+	+ '\nTAB0             BIN$IORgDWPvRSfgUwEPH6xG6Q==$0 TABLE       2018-01-29:23:13:33',
+	'GOLD参考書88Pを参照'));
+	pushChoice('異なるユーザーが所有する同じ名前の表の削除済み表が表示されている', false);
+	pushChoice('1つの削除済み表の実体は表であり、もう1つの削除済み表の実体は表の索引である', false);
+	pushChoice('2つのパーティションから構成されるパーティション表を削除した', false);
+	pushChoice('同じ名前の表を2回削除した', true);
+	sortChoice();
+	
+	// 132
+	q_list.push(new Question('フラッシュバックドロップを用いて、索引、トリガー、制約が付けられた表を復元しました。'
+	+ '\n表と一緒に復元されるものをすべて選択しなさい。',
+	'GOLD参考書89Pを参照'));
+	pushChoice('表定義', true);
+	pushChoice('表に格納されたデータ', true);
+	pushChoice('索引', true);
+	pushChoice('トリガー', true);
+	pushChoice('制約', true);
+	sortChoice();
+	
+	// 133
+	q_list.push(new Question('フラッシュバックロギングを有効化（フラッシュバックデータベースを有効化）する前に必要な設定を2つ選択しなさい。',
+	'GOLD参考書90Pを参照'));
+	pushChoice('サプリメンタルロギングの有効化', false);
+	pushChoice('ARCHIVELOGモード運用の設定', true);
+	pushChoice('高速リカバリ領域の構成', true);
+	pushChoice('UNDO保証の構成', false);
+	pushChoice('RMAN保存ポリシーの指定', false);
+	sortChoice();
+	
+	// 134
+	q_list.push(new Question('フラッシュバックデータベースの実行手順として正しいものを選択しなさい。'
+	+ '\n'
+	+ '\n1.補助インスタンスを起動する。'
+	+ '\n2.復旧ターゲットを指定したFLASHBACK DATABASE文を実行する。'
+	+ '\n3.復旧ターゲットの指定とデータベース全体のリストアおよびリカバリを実行するRMAN RUNブロックを実行する。'
+	+ '\n4.データベースをMOUNT状態にする。'
+	+ '\n5.RESETLOGSオプションを指定してデータベースをOPENする。'
+	+ '\n6.RESETLOGSオプションを指定せずデータベースをOPENする。',
+	'GOLD参考書90Pを参照'));
+	pushChoice('1 → 4 → 2 → 5', false);
+	pushChoice('1 → 4 → 2 → 6', false);
+	pushChoice('4 → 2 → 5', true);
+	pushChoice('4 → 2 → 6', false);
+	pushChoice('3 → 2 → 5', false);
+	pushChoice('3 → 2 → 6', false);
+	sortChoice();
+	
+	// 135
+	q_list.push(new Question('フラッシュバックデータベースの復旧ターゲットに関する説明として正しいものを選択しなさい。',
+	'GOLD参考書91Pを参照'));
+	pushChoice('DB_FLASHBACK_RETENTION_TARGET初期化パラメータに設定したフラッシュバックログ保存期間内であれば、フラッシュバックデータベースは必ず成功する', false);
+	pushChoice('UNDO保存保証をONに設定していれば、UNDO_RETENTION初期化パラメータの設定時間内へのフラッシュバックデータベースは必ず成功する', false);
+	pushChoice('保証付きリストアポイントに対応する時点へのフラッシュバックデータベースは必ず成功する', true);
+	pushChoice('保証付きリストアポイントに対応する時点以降へのフラッシュバックデータベースは必ず成功する', false);
+	sortChoice();
+	
+	// 136
+	q_list.push(new Question('フラッシュバックデータベースに失敗する状況をすべて選択しなさい。',
+	'GOLD参考書92Pを参照'));
+	pushChoice('データファイルが破損している場合', true);
+	pushChoice('データファイルのサイズが縮小されている場合', true);
+	pushChoice('制御ファイルがリストアされている場合', true);
+	pushChoice('データベースがRESETLOGSオプションでOPENされている場合', false);
+	pushChoice('復旧ターゲットに対応するバックアップが存在しない場合', false);
+	sortChoice();
+	
+	// 137
+	q_list.push(new Question('保証付きリストアポイントを作成する前に必要な設定を3つ選択しなさい。',
+	'GOLD参考書93Pを参照'));
+	pushChoice('サプリメンタルロギングの有効化', false);
+	pushChoice('ARCHIVELOGモード運用の設定', true);
+	pushChoice('高速リカバリ領域の構成', true);
+	pushChoice('UNDO保証の構成', false);
+	pushChoice('RMAN保存ポリシーの指定', false);
+	pushChoice('COMPATIBLE初期化パラメータを10.2以上に設定', true);
+	sortChoice();
+	
+	// 138
+	q_list.push(new Question('Data Pumpを用いたトランスポータブル表領域の手順として正しいものを選択しなさい。'
+	+ '\n移行元のデータベースと移行先のデータベースのプラットフォームおよびキャラクタセットは同一であるとします。'
+	+ '\n'
+	+ '\n1.RMANでDUPLICATE TABLESPACEコマンドを実行し、トランスポータブル用の複製データベースを作成する。'
+	+ '\n2.RMANでTRANSPORT TABLESPACEコマンドを実行し、データファイルとメタデータのダンプファイルを作成する。'
+	+ '\n3.移行元データベースで、転送対象の表領域を読み取り専用に変更する。'
+	+ '\n4.転送対象の表領域を構成するデータファイルを移行先にコピーする。'
+	+ '\n5.移行先のデータベースのプラットフォームに合わせてデータファイルをRMANで変換する。'
+	+ '\n6.移行元のデータベースで、Data Pumpをを用いてメタデータをエクスポートする。'
+	+ '\n7.メタデータを移行先にコピーする。'
+	+ '\n8.移行先データベースで、Data Pumpを用いてメタデータをインポートする。'
+	+ '\n9.移行先データベースで、転送した表領域を読み取り／書き込みモードにする。',
+	'GOLD参考書94Pを参照'));
+	pushChoice('2 → 6 → 7 → 8 → 9', false);
+	pushChoice('3 → 6 → 4 → 7 → 8 → 9', true);
+	pushChoice('1 → 6 → 4 → 7 → 8 → 9', false);
+	pushChoice('2 → 6 → 7 → 5 → 8 → 9', false);
+	pushChoice('3 → 6 → 4 → 7 → 5 → 8 → 9', false);
+	pushChoice('1 → 6 → 4 → 7 → 5 → 8 → 9', false);
+	sortChoice();
+	
+	// 139
+	q_list.push(new Question('RMANを用いたトランスポータブル表領域の手順として正しいものを選択しなさい。'
+	+ '\n移行元のデータベースと移行先のデータベースのプラットフォームおよびキャラクタセットは同一であるとします。'
+	+ '\n'
+	+ '\n1.RMANでDUPLICATE TABLESPACEコマンドを実行し、トランスポータブル用の複製データベースを作成する。'
+	+ '\n2.RMANでTRANSPORT TABLESPACEコマンドを実行し、データファイルとメタデータのダンプファイルを作成する。'
+	+ '\n3.移行元データベースで、転送対象の表領域を読み取り専用に変更する。'
+	+ '\n4.転送対象の表領域を構成するデータファイルを移行先にコピーする。'
+	+ '\n5.移行元データベースで、Data Pumpを用いてメタデータをエクスポートする。'
+	+ '\n6.メタデータを移行先にコピーする。'
+	+ '\n7.移行先で補助インスタンスを作成し、データファイル一貫性のある状態に変換する。'
+	+ '\n8.移行先データベースで、Data Pumpを用いてメタデータをインポートする。'
+	+ '\n9.移行先データベースで、転送した表領域を読み取り／書き込みモードにする。',
+	'GOLD参考書95Pを参照'));
+	pushChoice('3 → 2 → 4 → 6 → 8 → 9', false);
+	pushChoice('3 → 1 → 4 → 6 → 8 → 9', false);
+	pushChoice('2 → 4 → 6 → 7 → 8 → 9', false);
+	pushChoice('1 → 4 → 6 → 7 → 8 → 9', false);
+	pushChoice('2 → 4 → 6 → 8 → 9', true);
+	pushChoice('1 → 4 → 6 → 8 → 9', false);
+	sortChoice();
+	
+	// 140
+	q_list.push(new Question('トランスポータブル表領域の前提条件や制限のうち、正しいものをすべて選択しなさい。',
+	'GOLD参考書97Pを参照'));
+	pushChoice('ソースデータベースとターゲットデータベースは同じまたは上位互換の関係にあるキャラクタセットである必要がある', true);
+	pushChoice('転送対象の表領域は自動セグメント領域管理方式（ASSM）を使用している必要がある', false);
+	pushChoice('表とその表の索引が別の表領域に格納されている場合、それらの表領域は1回のトランスポータブル表領域の実行で一緒に転送できず、表領域ごとに複数回トランスポータブル表領域を実行する必要がある', false);
+	pushChoice('SYSTEM表領域はトランスポータブル表領域で転送できない', true);
+	pushChoice('SYSAUX表領域はトランスポータブル表領域で転送できない', true);
+	pushChoice('BIGFILE表領域はトランスポータブル表領域で転送できない', false);
+	pushChoice('暗号化された表領域はトランスポータブル表領域で転送できない', true);
+	sortChoice();
+	
+	// 141
+	q_list.push(new Question('イメージコピーを用いたトランスポータブル表領域の手順として正しいものを選択しなさい。'
+	+ '\nなお、環境などの条件は以下の通りです。'
+	+ '\n'
+	+ '\n移行元のデータベースのプラットフォーム："Solaros[tm]OE(64-bit)"'
+	+ '\n移行先のデータベースのプラットフォーム："Linux x86 64-bit"'
+	+ '\n移行元のデータベースと移行先のデータベースのキャラクタセット：同一'
+	+ '\nデータファイルのエンディアン変換：移行先のデータベースで実行'
+	+ '\n'
+	+ '\n1.RMANでCROSS TRANSPORT TABLESPACEコマンドを実行し、データファイルとメタデータのダンプファイルを作成する。'
+	+ '\n2.移行元データベースで、転送対象の表領域を読み取り専用に変更する。'
+	+ '\n3.転送対象の表領域を構成するデータファイルを移行先にコピーする。'
+	+ '\n4.移行元データベースで、Data Pumpを用いてメタデータをエクスポートする。'
+	+ '\n5.メタデータを移行先にコピーする。'
+	+ '\n6.RMANでCONVERT TABLESPACEコマンドを実行し、データファイルを移行先データベースのプラットフォームに合わせて変換する。'
+	+ '\n7.RMANでCONVERT DATAFILEコマンドを実行し、データファイルを移行先データベースのプラットフォームに合わせて変換する。'
+	+ '\n8.メタデータを移行先データベースのプラットフォームに合わせて変換する。'
+	+ '\n9.移行先データベースで、Data Pumpを用いてメタデータをインポートする。'
+	+ '\n10.移行先データベースで、転送した表領域を読み取り／書き込みモードにする。',
+	'GOLD参考書98Pを参照'));
+	pushChoice('2 → 4 → 3 → 5 → 7 → 9 → 10', true);
+	pushChoice('1 → 4 → 3 → 5 → 7 → 9 → 10', false);
+	pushChoice('2 → 4 → 3 → 5 → 6 → 9 → 10', false);
+	pushChoice('1 → 4 → 3 → 5 → 6 → 9 → 10', false);
+	pushChoice('2 → 4 → 3 → 5 → 6 → 8 → 9 → 10', false);
+	pushChoice('1 → 4 → 3 → 5 → 6 → 8 → 9 → 10', false);
+	sortChoice();
+	
+	// 142
+	q_list.push(new Question('バックアップセットを用いたトランスポータブル表領域の手順として正しいものを選択しなさい。'
+	+ '\nなお、環境などの条件は以下の通りです。'
+	+ '\n'
+	+ '\n移行元のデータベースのプラットフォーム："Solaros[tm]OE(64-bit)"'
+	+ '\n移行先のデータベースのプラットフォーム："Linux x86 64-bit"'
+	+ '\n移行元のデータベースと移行先のデータベースのキャラクタセット：同一'
+	+ '\nデータファイルのエンディアン変換：移行元のデータベースで実行'
+	+ '\n'
+	+ '\n1.移行元データベースで、転送対象の表領域を読み取り専用に変更する。'
+	+ '\n2.RMANでCONVERT TABLESPACEコマンドを実行し、データファイルを移行先データベースのプラットフォームに合わせて変換する。'
+	+ '\n3.RMANでBACKUP TO PLATFORMコマンドを実行し、バックアップセットの作成を行う。'
+	+ '\n4.RMANでBACKUP TO PLATFORMコマンドを実行し、バックアップセットの作成とメタデータのエクスポートを行う。'
+	+ '\n5.転送対象のバックアップセットを移行先にコピーする。'
+	+ '\n6.移行元データベースで、Data Pumpを用いてメタデータをエクスポートする。'
+	+ '\n7.メタデータを移行先にコピーする。'
+	+ '\n8.移行先データベースで、Data Pumpを用いてメタデータをインポートする。'
+	+ '\n9.移行先データベースで、転送した表領域を読み取り／書き込みモードにする。'
+	+ '\n10.RMANでRESTORE FOREIGN TABLESPACEコマンドを実行して、データファイルのリストアとメタデータのインポートを行う。'
+	+ '\n11.RMANでRESTORE FOREIGN TABLESPACEコマンドを実行して、データファイルのリストアを行う。',
+	'GOLD参考書99Pを参照'));
+	pushChoice('1 → 3 → 5 → 6 → 7 → 10 → 9', false);
+	pushChoice('1 → 4 → 5 → 7 → 10 → 9', true);
+	pushChoice('1 → 3 → 5 → 6 → 7 → 11 → 8 → 9', false);
+	pushChoice('1 → 4 → 5 → 7 → 11 → 8 → 9', false);
+	pushChoice('1 → 2 → 3 → 5 → 6 → 7 → 10 → 9', false);
+	pushChoice('1 → 2 → 4 → 5 → 7 → 10 → 9', false);
+	sortChoice();
+	
+	// 143
+	q_list.push(new Question('エンディアンが異なるプラットフォーム間でのトランスポータブル表領域の前提条件や制限として正しいものをすべて選択しなさい。',
+	'GOLD参考書101Pを参照'));
+	pushChoice('ソースデータベースとターゲットデータベースは同じまたは上位互換の関係にあるキャラクタセットである必要がある', true);
+	pushChoice('SYSAUX表領域はトランスポータブル表領域では転送できない', true);
+	pushChoice('暗号化された表領域はトランスポータブル表領域では転送できない', true);
+	pushChoice('COMPATIBLE初期化パラメータは10.0.0以上である必要がある', true);
+	pushChoice('バックアップセットによるクロスプラットフォーム表領域の場合、エンディアン変換は移行元のデータベースで実現する必要がある', false);
+	sortChoice();
+	
+	// 144
+	q_list.push(new Question('バックアップベースのデータベース複製を行う手順として正しいものを選択しなさい。'
+	+ '\nなお、手順が複数存在する場合は、可用性や手順の簡単さの点で最も優れた手順を選ぶこと。'
+	+ '\n'
+	+ '\n1.RMANクライアントからソースデータベースにはTARGETとして、補助インスタンスにはCATALOGとして接続する。'
+	+ '\n2.RMANクライアントからソースデータベースにはTARGETとして、補助インスタンスにはAUXILIARYとして接続する。'
+	+ '\n3.RMANのDUPLICATE TARGET DATABASEコマンドを実行し、データベースを複製する。'
+	+ '\n4.複製元データベースでバックアップを取得する。'
+	+ '\n5.複製元データベースをSHUTDOWNし、一貫性バックアップを取得する。'
+	+ '\n6.複製先ホストに複製元データベースのSPFILEをコピーする。'
+	+ '\n7.複製先ホストで補助インスタンスを起動する。'
+	+ '\n8.補助インスタンスにリモート接続できるように構成する。'
+	+ '\n9.複製先ホストにバックアップファイルやアーカイブログファイルをコピーする。',
+	'GOLD参考書102Pを参照'));
+	pushChoice('4 → 7 → 6 → 8 → 9 → 1 → 3', false);
+	pushChoice('5 → 7 → 6 → 8 → 9 → 2 → 3', false);
+	pushChoice('4 → 7 → 8 → 9 → 2 → 3', true);
+	pushChoice('5 → 7 → 8 → 9 → 2 → 3', false);
+	pushChoice('4 → 7 → 8 → 9 → 1 → 3', false);
+	pushChoice('5 → 7 → 8 → 9 → 1 → 3', false);
+	sortChoice();
+	
+	// 145
+	q_list.push(new Question('DUPLICATE TARGET DATABASEコマンドに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書103Pを参照'));
+	pushChoice('複製元データベースと複製先データベースのファイル構成を同一にしたい場合、NOFILENAMECHECK句を必ず指定する必要がある', true);
+	pushChoice('サーバーパラメータファイルの複製が可能だが、複製元データベースと複製データベースの設定値が同一となる制限がある', false);
+	pushChoice('PARAMETER_VALUE_CONVERT句を指定すると、複製元データベースの初期化パラメータ設定と複製先の環境に応じてOracleが自動的に変換してくれる', false);
+	pushChoice('SET UNTIL句を指定すると、複製元のデータベースを過去のある時点の状態として作成する', true);
+	sortChoice();
+	
+	// 146
+	q_list.push(new Question('アクティブなデータベース複製を行う手順として正しいものを選択しなさい。'
+	+ '\nなお、手順が複数存在する場合は、可用性や手順の簡単さの点で最も優れた手順を選ぶこと。'
+	+ '\n'
+	+ '\n1.RMANクライアントからソースデータベースにはTARGETとして、補助インスタンスにはAUXILIARYとして接続する。'
+	+ '\n2.RMANのDUPLICATE TARGET ACTIVE DATABASEコマンドを実行し、データベースを複製する。'
+	+ '\n3.RMANのDUPLICATE TARGET ACTIVE DATABASE...FROM ACTIVE DATABASEコマンドを実行し、データベースを複製する。'
+	+ '\n4.複製元データベースでバックアップを取得する。'
+	+ '\n5.複製先ホストで補助インスタンスを起動する。'
+	+ '\n6.補助インスタンスにリモート接続できるように構成する。'
+	+ '\n7.複製先ホストにバックアップファイルやアーカイブログファイルをコピーする。',
+	'GOLD参考書104Pを参照'));
+	pushChoice('4 → 5 → 6 → 7 → 1 → 3', false);
+	pushChoice('4 → 5 → 6 → 1 → 3', false);
+	pushChoice('5 → 6 → 1 → 3', true);
+	pushChoice('4 → 5 → 6 → 7 → 1 → 2', false);
+	pushChoice('4 → 5 → 6 → 1 → 2', false);
+	pushChoice('5 → 6 → 1 → 2', false);
+	sortChoice();
+	
+	// 147
+	q_list.push(new Question('Oracle Database 12cの新機能のバックアップセットを使用したアクティブデータベースの複製が実行される条件を3つ選択しなさい。',
+	'GOLD参考書105Pを参照'));
+	pushChoice('DUPLICATE...FROM ACTIVE DATABASEコマンドにUSING BACKUPSET句が指定されている場合', true);
+	pushChoice('DUPLICATE...FROM ACTIVE DATABASEコマンドの前にSET ENCRYPTIONが指定されている場合', true);
+	pushChoice('複製元データベースを停止してからアクティブなデータベースの複製を実行した場合', false);
+	pushChoice('割り当てられた補助チャネルの数がターゲットチャネルの数と同じか、大きい場合', true);
+	pushChoice('複製元のデータベースであらかじめバックアップセット形式でバックアップを取得してある状態でアクティブなデータベースの複製を実行した場合', false);
+	sortChoice();
+	
+	// 148
+	q_list.push(new Question('複製データベース（複製して作成されたデータベース）とバックアップをリストアしたデータベース（バックアップを新しいホストへリストア／リカバリして作成されたデータベース）のDBIDについて正しいものを選択しなさい。',
+	'GOLD参考書106Pを参照'));
+	pushChoice('複製データベース：元のデータベースと同じ、バックアップをリストアしたデータベース：元のデータベースと同じ', false);
+	pushChoice('複製データベース：元のデータベースと異なる、バックアップをリストアしたデータベース：元のデータベースと同じ', true);
+	pushChoice('複製データベース：元のデータベースと同じ、バックアップをリストアしたデータベース：元のデータベースと異なる', false);
+	pushChoice('複製データベース：元のデータベースと異なる、バックアップをリストアしたデータベース：元のデータベースと異なる', false);
+	sortChoice();
+	
+	// 149
+	q_list.push(new Question('チャネルによって実行されるRMANのバックアップやリカバリ処理状況を監視するため有用な動的パフォーマンスビューを選択しなさい。',
+	'GOLD参考書107Pを参照'));
+	pushChoice('V$CHANNEL', false);
+	pushChoice('V$SESSION_LOMGOPS', true);
+	pushChoice('V$SESSION_CHANNEL', false);
+	pushChoice('V$RMAN_CHANNEL', false);
+	sortChoice();
+	
+	// 150
+	q_list.push(new Question('以下のRMANバックアップ機能のうち、ストレージI/O量削減に役立つ機能をすべて選択しなさい。',
+	'GOLD参考書107Pを参照'));
+	pushChoice('高速増分バックアップ', true);
+	pushChoice('増分バックアップ', true);
+	pushChoice('パラレルバックアップ', false);
+	pushChoice('圧縮バックアップ', true);
+	pushChoice('イメージコピー形式でのバックアップ', false);
+	pushChoice('バックアップセット形式でのバックアップ', true);
+	sortChoice();
+	
+	// 151
+	q_list.push(new Question('RMANによるバックアップやリストアが、非同期I/Oで実行されているかを確認するために役立つ動的パフォーマンスビューを選択しなさい。',
+	'GOLD参考書108Pを参照'));
+	pushChoice('V$BACKUP_SYNC_IO', false);
+	pushChoice('V$BACKUP_ASYNC_IO', true);
+	pushChoice('V$DISK_SYNCH_IO', false);
+	pushChoice('V$DISK_ASYNCH_IO', false);
+	sortChoice();
+	
+	// 152
+	q_list.push(new Question('ストリーミングテープドライブの特性を生かす目的で、書き込み対象のデータを常にテープに供給し続けることに有効な設定を2つ選択しなさい。',
+	'GOLD参考書109Pを参照'));
+	pushChoice('増分バックアップ形式でバックアップを取得する', false);
+	pushChoice('リカバリカタログを使用する', false);
+	pushChoice('MAXOPENFILESパラメータを大きな値に設定する', true);
+	pushChoice('RATEパラメータを小さな値に設定する', false);
+	pushChoice('BLKSIZEパラメータを大きな値に設定する', true);
+	sortChoice();
+	
+	// 153
+	q_list.push(new Question('テープ装置への非同期I/Oを用いたパフォーマンスの改善に関係する項目を2つ選択しなさい。',
+	'GOLD参考書109Pを参照'));
+	pushChoice('初期化パラメータBACKUP_TAPE_IO_SLAVESをtrueに設定する', true);
+	pushChoice('初期化パラメータDISK_ASYNCH_IOをtrueに設定する', false);
+	pushChoice('ラージプールに十分大きなサイズを割り当てる', true);
+	pushChoice('REDOログバッファに十分大きなサイズを割り当てる', false);
+	sortChoice();
 }());
 
 (function(){
