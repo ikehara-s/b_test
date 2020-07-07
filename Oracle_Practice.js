@@ -1352,6 +1352,252 @@ function sortQuestion(){
 	pushChoice('バックアップセット形式、イメージコピー形式の両方バックアップ形式に対応している', true);
 	pushChoice('オンラインログファイルが不要な場合にのみ、RESETLOGオプション付きでデータベースをオープンする必要がある。オンラインログファイルが必要な場合は、RESETLOGSオプションを指定する必要はない', false);
 	sortChoice();
+	
+	// 099
+	q_list.push(new Question('NOARCHIVELOGモードのデータベースにおいて、表領域EXAMPLEを構成するデータファイル/u01/app/oracle/oradata/orcl/example01.dbfにメディア障害が発生しました。'
+	+ '\n復旧作業において、RMANで実行すべき一連のコマンドの実行順として正しいものを選択しなさい。'
+	+ '\nなお、制御ファイルは自動バックアップからリストアすることとします。'
+	+ '\n'
+	+ '\n1.STARTUP NOMOUNT'
+	+ '\n2.STARTUP MOUNT'
+	+ '\n3.RESTORE CONTROLFILE FROM AUTOBACKUP;'
+	+ '\n4.ALTER TABLESPACE example OFFLINE IMMEDIATE;'
+	+ '\n5.RESTORE DATAFILE <path>;'
+	+ '\n6.RECOVER DATAFILE <path>;'
+	+ '\n7.ALTER TABLESPACE example ONLINE;'
+	+ '\n8.ALTER DATABASE MOUNT;'
+	+ '\n9.RESTORE DATABASE;'
+	+ '\n10.RECOVER DATABASE;'
+	+ '\n11.ALTER DATABASE OPEN;'
+	+ '\n12.ALTER DATABASE OPEN RESETLOGS;',
+	'GOLD参考書59Pを参照'));
+	pushChoice('1 → 3 → 8 → 9 → 10 → 12', false);
+	pushChoice('2 → 3 → 8 → 9 → 10 → 12', false);
+	pushChoice('1 → 3 → 8 → 9 → 12', true);
+	pushChoice('2 → 3 → 8 → 9 → 11', false);
+	pushChoice('1 → 3 → 8 → 4 → 5 → 7 → 12', false);
+	pushChoice('2 → 3 → 9 → 12', false);
+	sortChoice();
+	
+	// 100
+	q_list.push(new Question('NOARCHIVELOGモードのデータベースで、差分増分バックアップを用いてバックアップを取得しているとします。'
+	+ '\nメディア障害が発生時の復旧作業において、RMANで実行すべき一連のコマンドの実行順として正しいものを選択しなさい。'
+	+ '\nなお、制御ファイルは自動バックアップからリストアすることとします。'
+	+ '\n'
+	+ '\n1.STARTUP NOMOUNT'
+	+ '\n2.RESTORE CONTROLFILE FROM BACKUP;'
+	+ '\n3.ALTER DATABASE MOUNT;'
+	+ '\n4.RESTORE DATABASE;'
+	+ '\n5.RESTORE DATABASE NOREDO;'
+	+ '\n6.RECOVER DATABASE;'
+	+ '\n7.RECOVER DATABASE NOREDO;'
+	+ '\n8.ALTER DATABASE OPEN RESETLOGS;',
+	'GOLD参考書61Pを参照'));
+	pushChoice('1 → 2 → 3 → 4 → 7 → 8', true);
+	pushChoice('1 → 2 → 3 → 5 → 7 → 8', false);
+	pushChoice('1 → 2 → 3 → 5 → 6 → 8', false);
+	pushChoice('1 → 2 → 3 → 5 → 8', false);
+	sortChoice();
+	
+	// 101
+	q_list.push(new Question('一時ファイルが失われた場合の復旧手順として正しいものを選択しなさい。'
+	+ '\nなお、できる限りデータベースの動作に影響を与えず、現行の構成を維持できる方法を選ぶこと。',
+	'GOLD参考書62Pを参照'));
+	pushChoice('一時表領域をIMMEDIATEモードでオフラインにした後、一時ファイルをリストア／リカバリし、一時表領域をオンラインにする', false);
+	pushChoice('失われた一時ファイルを削除した後、同様の構成で一時ファイルを改めて作成する', true);
+	pushChoice('インスタンスが強制停止されるため、MOUNTモードでインスタンスを起動した後、一時ファイルをリストア／リカバリし、データベースをOPENする', false);
+	pushChoice('新しい一時表領域を作成し、この表領域をデータベースおよびユーザーのデフォルト一時表領域とする', false);
+	pushChoice('インスタンスを再起動する', false);
+	sortChoice();
+	
+	// 102
+	q_list.push(new Question('索引専用の表領域（索引だけ格納していた表領域）を構成するデータファイルが失われた場合の復旧手順として正しいものを2つ選択しなさい。',
+	'GOLD参考書63Pを参照'));
+	pushChoice('表領域をIMMEDIATEモードでオフラインにした後、表領域を構成するデータファイルをリストア／リカバリし、表領域をオンラインにする', true);
+	pushChoice('失われたデータファイルを削除した後、同様の構成でデータファイルを改めて作成する', false);
+	pushChoice('インスタンスが強制停止されるため、MOUNTモードでインスタンスを起動した後、データファイルをリストア／リカバリし、データベースをOPENする', false);
+	pushChoice('破損した表領域を再作成してから、破損した表領域に格納されていた索引を再作成する', true);
+	pushChoice('インスタンスを再起動する', false);
+	sortChoice();
+	
+	// 103
+	q_list.push(new Question('読み取り専用表領域のバックアップと復旧に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書63Pを参照'));
+	pushChoice('デフォルトのRMAN設定で、読み取り専用表領域のバックアップがスキップされることがある', false);
+	pushChoice('RMANでバックアップの最適化設定を有効にすると、読み取り専用表領域のバックアップがスキップされることがある', true);
+	pushChoice('読み取り専用表領域を構成するとデータファイルに障害が発生した場合、復旧にはデータファイルのリストアとリカバリが必要である', false);
+	pushChoice('読み取り専用表領域を構成するデータファイルに障害が発生した場合、復旧にはデータファイルのリストアのみが必要である', true);
+	sortChoice();
+	
+	// 104
+	q_list.push(new Question('SPFILEが失われた場合の復旧手順として正しいものを選択しなさい。'
+	+ '\n'
+	+ '\n1.バックアップからSPFILEをリストアする。'
+	+ '\n2.バックアップからテキスト形式の初期化パラメータファイル（PFILE）をリストアする。'
+	+ '\n3.リストアしたPFILEからSPFILEを作成する。'
+	+ '\n4.仮のSPFILEを用いてNOMOUNTモードでインスタンスを起動する。'
+	+ '\n5.リストアしたSPFILEを用いてインスタンスを再起動する。'
+	+ '\n6.リストアしたPFILEを用いてインスタンスを再起動する。'
+	+ '\n7.DBIDを設定する。',
+	'GOLD参考書64Pを参照'));
+	pushChoice('7 → 1 → 5', false);
+	pushChoice('4 → 7 → 1 → 5', true);
+	pushChoice('7 → 2 → 6', false);
+	pushChoice('4 → 7 → 2 → 6', false);
+	pushChoice('7 → 2 → 3 → 6', false);
+	pushChoice('4 → 7 → 2 → 3 → 6', false);
+	sortChoice();
+	
+	// 105
+	q_list.push(new Question('多重化されたすべての制御ファイルが失われた場合の復旧手順として正しいものを選択しなさい。'
+	+ '\n'
+	+ '\n1.NOMOUNTモードでデータベースを起動する。'
+	+ '\n2.MOUNTモードでデータベースを起動する。'
+	+ '\n3.RESTORE CONTROLFILEを実行して、バックアップ制御ファイルをリストアする。'
+	+ '\n4.ALTER DATABASE MOUNTを実行してMOUNTモードに遷移する。'
+	+ '\n5.ALTER DATABASE OPENを実行してデータベースをオープンする。'
+	+ '\n6.ALTER DATABASE RESETLOGSを実行してデータベースをオープンする。'
+	+ '\n7.RECOVER DATABASEを実行してデータベースをリカバリする。',
+	'GOLD参考書65Pを参照'));
+	pushChoice('1 → 3 → 4 → 7 → 6', true);
+	pushChoice('2 → 3 → 4 → 7 → 6', false);
+	pushChoice('1 → 3 → 4 → 5', false);
+	pushChoice('2 → 3 → 4 → 5', false);
+	pushChoice('1 → 3 → 5', false);
+	pushChoice('2 → 3 → 6', false);
+	sortChoice();
+	
+	// 106
+	q_list.push(new Question('多重化された制御ファイルのうち、1つの制御ファイルが失われた場合の復旧手順として正しいものを選択しなさい。'
+	+ '\nなお、複数の方法が存在する場合は、復旧による影響が最も少ないものを選ぶこと。',
+	'GOLD参考書66Pを参照'));
+	pushChoice('制御ファイルのバックアップをリストアする', false);
+	pushChoice('正常な制御ファイルをコピーする', true);
+	pushChoice('CREATE CONTROLFILE文を実行する', false);
+	pushChoice('CONTROL_FILES初期化パラメータを変更する', false);
+	sortChoice();
+	
+	// 107
+	q_list.push(new Question('制御ファイルを新しい場所に移動する手段として正しいものを選択しなさい。'
+	+ '\n現時点でインスタンスは起動中とします。'
+	+ '\n'
+	+ '\n1.OSのファイルコピーコマンドで制御ファイルを新しい場所にコピーする。'
+	+ '\n2.NOMOUNTモードでデータベースを起動する。'
+	+ '\n3.MOUNTモードでデータベースを起動する。'
+	+ '\n4.通常のモードでデータベースを起動する。'
+	+ '\n5.ALTER DATABASE MOUNTを実行してMOUNTモードに遷移する。'
+	+ '\n6.ALTER DATABASE OPENを実行してデータベースをオープンする。'
+	+ '\n7.ALTER SYSTEM SET CONTORL_FILES...SCOPE=SPFILEを実行して、CONTROL_FILES初期化パラメータを変更する。'
+	+ '\n8.ALTER SYSTEM SET CONTORL_FILES...SCOPE=BOTHを実行して、CONTROL_FILES初期化パラメータを変更する。'
+	+ '\n9.インスタンスを停止する。',
+	'GOLD参考書67Pを参照'));
+	pushChoice('8 → 9 → 1 → 4', false);
+	pushChoice('7 → 9 → 1 → 4', true);
+	pushChoice('9 → 1 → 2 → 7 → 5 → 6', false);
+	pushChoice('9 → 1 → 2 → 4', false);
+	pushChoice('9 → 1 → 3 → 7 → 5 → 6', false);
+	pushChoice('9 → 1 → 3 → 4', false);
+	sortChoice();
+	
+	// 107
+	q_list.push(new Question('SPFILE、制御ファイルおよびすべてのデータファイルが失われた場合の復旧手順として正しいものを選択しなさい。'
+	+ '\nなお、データベースはARCHIVELOGモードで運用されており、リカバリカタログは使用していないものとします。'
+	+ '\n'
+	+ '\n1.バックアップからSPFILEをリストアする。'
+	+ '\n2.バックアップからPFILEをリストアする。'
+	+ '\n3.リストアしたPFILEからSPFILEを作成する。'
+	+ '\n4.仮のSPFILEを用いてNOMOUNTモードでインスタンスを起動する。'
+	+ '\n5.リストアしたSPFILEを用いてインスタンスを再起動する。'
+	+ '\n6.リストアしたPFILEを用いてインスタンスを再起動する。'
+	+ '\n7.DBIDを設定する。'
+	+ '\n8.RESTORE CONTROLFILEを実行して、バックアップ制御ファイルをリストアする。'
+	+ '\n9.RECOVER CONTROLFILEを実行して、バックアップ制御ファイルをリカバリする。'
+	+ '\n10.ALTER DATABASE MOUNTを実行してMOUNTモードに遷移する。'
+	+ '\n11.ALTER DATABASE OPENを実行してデータベースをオープンする。'
+	+ '\n12.ALTER DATABASE OPEN RESETLOGSを実行してデータベースをオープンする。'
+	+ '\n13.RESTORE DATABASEを実行して、すべてのデータファイルをリストアする。'
+	+ '\n14.RECOVER DATABASEを実行して、すべてのデータファイルをリカバリする。',
+	'GOLD参考書68Pを参照'));
+	pushChoice('4 → 7 → 1 → 5 → 8 → 10 → 13 → 14 → 11', false);
+	pushChoice('4 → 7 → 1 → 5 → 8 → 10 → 13 → 14 → 12', true);
+	pushChoice('4 → 7 → 1 → 5 → 8 → 10 → 13 → 12', false);
+	pushChoice('4 → 7 → 1 → 5 → 8 → 9 → 10 → 13 → 14 → 11', false);
+	pushChoice('4 → 7 → 1 → 5 → 8 → 9 → 10 → 13 → 14 → 12', false);
+	pushChoice('4 → 7 → 1 → 5 → 8 → 9 → 10 → 13 → 14 ', false);
+	sortChoice();
+	
+	// 108
+	q_list.push(new Question('オンラインログファイルにおける破損で、不完全リカバリが必要な状況を2つ選択しなさい。',
+	'GOLD参考書69Pを参照'));
+	pushChoice('カレントなロググループの全メンバーが破損し、ログのクリアに失敗した場合', true);
+	pushChoice('カレントなロググループの全メンバーが破損し、ログのクリアに成功した場合', false);
+	pushChoice('アクティブなロググループの全メンバーが破損し、チェックポイントの実行に失敗した場合', true);
+	pushChoice('アクティブなロググループの全メンバーが破損し、チェックポイントの実行に成功した場合', false);
+	pushChoice('非アクティブなロググループの全メンバーが破損した場合', false);
+	sortChoice();
+	
+	// 109
+	q_list.push(new Question('メディアリカバリにおいて、RESETLOGSオプション付きでのデータベースOPENが必要な状況をすべて選択しなさい。',
+	'GOLD参考書70Pを参照'));
+	pushChoice('不完全リカバリ実行時', true);
+	pushChoice('完全リカバリ実行時', false);
+	pushChoice('NOARCHIVELOGモードのデータベースでメディアリカバリが必要な障害が発生した場合', true);
+	pushChoice('フラッシュバックデータベースを実行した場合', true);
+	pushChoice('制御ファイルをリストアした場合', true);
+	pushChoice('サーバーパラメータファイルをリストアした場合', false);
+	sortChoice();
+	
+	// 110
+	q_list.push(new Question('ディスク障害によりカレントのオンラインログファイルの全メンバーが破損し、インスタンスが強制終了されました。'
+	+ '\n障害が発生したディスクは使用できないため、新しい場所にオンラインログファイルを配置する必要があります。'
+	+ '\n復旧手順として正しいものを選択しなさい。'
+	+ '\n'
+	+ '\n1.RESTORE DATABASEを実行し、すべてのデータファイルをリストアする。'
+	+ '\n2.RESTORE LOGFILEを実行し、破損したオンラインログファイルをリストアする。'
+	+ '\n3.RECOVER DATABASEを実行し、完全リカバリを行う。'
+	+ '\n4.破損していないオンラインログファイルのログ順序番号を復旧ターゲットに指定して、不完全リカバリを行う。'
+	+ '\n5.ALTER DATABASE RENAME FILEを実行して、破損したオンラインログファイルを新しい場所に移動する。'
+	+ '\n6.ALTER DATABASE OPENを実行して、データベースをOPENする。'
+	+ '\n7.ALTER DATABASE OPEN RESETLOGSを実行して、データベースをOPENする。',
+	'GOLD参考書70Pを参照'));
+	pushChoice('1 → 4 → 5 → 6', false);
+	pushChoice('1 → 2 → 4 → 5 → 6', false);
+	pushChoice('1 → 4 → 6', false);
+	pushChoice('1 → 2 → 4 → 7', false);
+	pushChoice('1 → 4 → 5 → 7', true);
+	pushChoice('1 → 2 → 4 → 5 → 7', false);
+	sortChoice();
+	
+	// 111
+	q_list.push(new Question('不完全リカバリを実行するためのコマンドとして正しいものを選択しなさい。'
+	+ '\n復旧ターゲットはログ順序番号10とします。',
+	'GOLD参考書71Pを参照'));
+	pushChoice('RUN { SET UNTIL SEQUENCE=10; RESTORE DATABASE; RECOVER DATABASE; }', true);
+	pushChoice('RUN { UNTIL SEQUENCE=10; RESTORE DATABASE; RECOVER DATABASE; }', false);
+	pushChoice('RESTORE DATABASE; RECOVER DATABASE UNTIL SEQUENCE=10;', false);
+	pushChoice('RUN { RESTORE DATABASE; RECOVER DATABASE UNTIL SEQUENCE=10; }', false);
+	sortChoice();
+	
+	// 112
+	q_list.push(new Question('表のリカバリに関する説明として正しいものをすべて選択しなさい。',
+	'GOLD参考書73Pを参照'));
+	pushChoice('復旧ターゲットに対応するバックアップが必要である', true);
+	pushChoice('ターゲットデータベースはARCHIVELOGモードである必要がある', true);
+	pushChoice('ターゲットデータベースはMOUNTモードで起動している必要がある', false);
+	pushChoice('SYSスキーマの表に対して表リカバリを実行できない', true);
+	pushChoice('SYSTEM表領域およびSYSAUX表領域の表に対して表リカバリを実行できない', true);
+	pushChoice('リカバリ対象の表に作成されていた制約と索引は常にインポートされない', false);
+	sortChoice();
+	
+	// 113
+	q_list.push(new Question('表のリカバリを実行したときに内部的に使用される構成要素として正しいものをすべて選択しなさい。',
+	'GOLD参考書73Pを参照'));
+	pushChoice('復旧ターゲット近辺で実行されていた更新処理を特定するための、サプリメンタルロギングで出力されたREDOデータ', false);
+	pushChoice('復旧ターゲット時点のデータを得るための、ターゲットデータベースのバックアップ', true);
+	pushChoice('AUXILIARY DESTINATIONに作成された補助インスタンス', true);
+	pushChoice('リカバリ対象の表が含まれるData Pumpダンプファイル', true);
+	pushChoice('補助インスタンスから表領域をトランスポートするためのデータファイル', false);
+	sortChoice();
 }());
 
 (function(){
