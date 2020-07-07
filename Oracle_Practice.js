@@ -2114,6 +2114,56 @@ function sortQuestion(){
 	pushChoice('ラージプールに十分大きなサイズを割り当てる', true);
 	pushChoice('REDOログバッファに十分大きなサイズを割り当てる', false);
 	sortChoice();
+	
+	// 154
+	q_list.push(new Question('アラートログに含まれる情報を3つ選択してください。',
+	'SILVER参考書25Pを参照'));
+	pushChoice('破損ブロックに関するエラー情報', true);
+	pushChoice('メトリックしきい値を超えた場合の統計情報', false);
+	pushChoice('チェックポイントの開始時間と終了時間', true);
+	pushChoice('表に対するDROPやTRUNCATE情報', false);
+	pushChoice('最後のベースライン作成後に行われた初期化パラメータの変更', true);
+	sortChoice();
+	
+	// 155
+	q_list.push(new Question('Oracle Database 12cのDDLログに関する説明として正しいものを2つ選択しなさい。',
+	'SILVER参考書29Pを参照'));
+	pushChoice('テキスト形式とXML形式のファイルが存在する', true);
+	pushChoice('デフォルトで生成される', false);
+	pushChoice('DDL文と実行タイムスタンプが記録される', true);
+	pushChoice('SYSユーザーによる実行は除外される', false);
+	sortChoice();
+	
+	// 156
+	q_list.push(new Question('MTTRアドバイザに関する説明として正しいものを2つ選択しなさい。',
+	'SILVER参考書103Pを参照'));
+	pushChoice('現在のデータファイルサイズからかかるMTTR時間が計算される', false);
+	pushChoice('FAST_START_MTTR_TARGET初期化パラメータが0の場合、使用することができない', true);
+	pushChoice('V$INSTANCE_RECOVERビューで結果を確認することができる', false);
+	pushChoice('MTTR時間に対するI/O量を見積もることができる', true);
+	sortChoice();
+	
+	// 157
+	q_list.push(new Question('次のコマンドに関する説明として正しいものを2つ選択しなさい。'
+	+ '\n'
+	+ '\nSQL> ALTER DATABASE BACKUP CONTROLFILE TO TRACE;',
+	'SILVER参考書116Pを参照'));
+	pushChoice('制御ファイルのバイナリバックアップが作成される', false);
+	pushChoice('制御ファイルを再作成するスクリプトが作成される', true);
+	pushChoice('$ORACLE_HOME/dbsにファイルが作成される', false);
+	pushChoice('ユーザートレースファイルとして作成される', true);
+	sortChoice();
+	
+	// 158
+	q_list.push(new Question('2つの制御ファイルを構成しているデータベースで、1つの制御ファイルに障害が発生し、データベースがマウントできません。'
+	+ '\n制御ファイルの格納にはASMを使用しています。'
+	+ '\n適切なリカバリ方法を選択しなさい。',
+	'SILVER参考書119Pを参照'));
+	pushChoice('RMANを使用して、正常な制御ファイルからリストアする', true);
+	pushChoice('OSコマンドを使用して、正常な制御ファイルのコピーで損失した制御ファイルを置き換える', false);
+	pushChoice('正常な制御ファイルから制御ファイルの再作成スクリプトを生成し、スクリプトを実行して制御ファイルを再作成する', false);
+	pushChoice('データベース全体のバックアップをリストアする必要がある', false);
+	sortChoice();
 }());
 
 (function(){
