@@ -1499,7 +1499,7 @@ function sortQuestion(){
 	pushChoice('9 → 1 → 3 → 4', false);
 	sortChoice();
 	
-	// 107
+	// 108
 	q_list.push(new Question('SPFILE、制御ファイルおよびすべてのデータファイルが失われた場合の復旧手順として正しいものを選択しなさい。'
 	+ '\nなお、データベースはARCHIVELOGモードで運用されており、リカバリカタログは使用していないものとします。'
 	+ '\n'
@@ -1524,16 +1524,6 @@ function sortQuestion(){
 	pushChoice('4 → 7 → 1 → 5 → 8 → 9 → 10 → 13 → 14 → 11', false);
 	pushChoice('4 → 7 → 1 → 5 → 8 → 9 → 10 → 13 → 14 → 12', false);
 	pushChoice('4 → 7 → 1 → 5 → 8 → 9 → 10 → 13 → 14 ', false);
-	sortChoice();
-	
-	// 108
-	q_list.push(new Question('オンラインログファイルにおける破損で、不完全リカバリが必要な状況を2つ選択しなさい。',
-	'GOLD参考書69Pを参照'));
-	pushChoice('カレントなロググループの全メンバーが破損し、ログのクリアに失敗した場合', true);
-	pushChoice('カレントなロググループの全メンバーが破損し、ログのクリアに成功した場合', false);
-	pushChoice('アクティブなロググループの全メンバーが破損し、チェックポイントの実行に失敗した場合', true);
-	pushChoice('アクティブなロググループの全メンバーが破損し、チェックポイントの実行に成功した場合', false);
-	pushChoice('非アクティブなロググループの全メンバーが破損した場合', false);
 	sortChoice();
 	
 	// 109
@@ -2163,6 +2153,1286 @@ function sortQuestion(){
 	pushChoice('OSコマンドを使用して、正常な制御ファイルのコピーで損失した制御ファイルを置き換える', false);
 	pushChoice('正常な制御ファイルから制御ファイルの再作成スクリプトを生成し、スクリプトを実行して制御ファイルを再作成する', false);
 	pushChoice('データベース全体のバックアップをリストアする必要がある', false);
+	sortChoice();
+	
+	// 159
+	q_list.push(new Question('オンラインログファイルにおける破損で、不完全リカバリが必要な状況を2つ選択しなさい。',
+	'GOLD参考書69Pを参照'));
+	pushChoice('カレントなロググループの全メンバーが破損し、ログのクリアに失敗した場合', true);
+	pushChoice('カレントなロググループの全メンバーが破損し、ログのクリアに成功した場合', false);
+	pushChoice('アクティブなロググループの全メンバーが破損し、チェックポイントの実行に失敗した場合', true);
+	pushChoice('アクティブなロググループの全メンバーが破損し、チェックポイントの実行に成功した場合', false);
+	pushChoice('非アクティブなロググループの全メンバーが破損した場合', false);
+	sortChoice();
+	
+	// 160
+	q_list.push(new Question('PDBに関する説明として正しいものを3つ選択しなさい。',
+	'GOLD参考書111Pを参照'));
+	pushChoice('特定のアプリケーション固有のデータを格納する', true);
+	pushChoice('複数のハードウェアリソースを統合して利用する', false);
+	pushChoice('異なるCDBへデータの移動を可能にする', true);
+	pushChoice('個々のPDB内における権限管理を分離する', true);
+	sortChoice();
+	
+	// 161
+	q_list.push(new Question('複数の非CDBと比較したマルチテナントアーキテクチャの利点として適切なものを3つ選択しなさい。',
+	'GOLD参考書112Pを参照'));
+	pushChoice('使用するメモリー割り当ての詳細なチューニングが可能', false);
+	pushChoice('職務の分離によるセキュリティの改善', true);
+	pushChoice('メディア障害の削減', false);
+	pushChoice('記憶域割り当ての削減', true);
+	pushChoice('アップグレードの時間短縮', true);
+	sortChoice();
+	
+	// 162
+	q_list.push(new Question('マルチテナントで作成したコンテナデータベースに含まれるコンテナとして正しい説明を3つ選択しなさい。',
+	'GOLD参考書112Pを参照'));
+	pushChoice('各PDBにインスタンスが対応付けられる', false);
+	pushChoice('CDBにインスタンスが対応付けられる', true);
+	pushChoice('1つ以上のシードPDBで管理される', false);
+	pushChoice('1つ以上のルートコンテナで管理される', true);
+	pushChoice('0以上のユーザーPDBを作成できる', true);
+	pushChoice('CDBを作成した時点で最低1つのユーザーPDBが必要である', false);
+	sortChoice();
+	
+	// 163
+	q_list.push(new Question('CDBレベルでのみ構成できるものを3つ選択しなさい。',
+	'GOLD参考書113Pを参照'));
+	pushChoice('SPFILEの作成', true);
+	pushChoice('暗号化のためのマスター鍵の作成', false);
+	pushChoice('Oracle Data Guardによるスタンバイデータベースの作成', true);
+	pushChoice('キャラクタセットの設定', true);
+	pushChoice('Oracle Database Vaultによる権限設定', false);
+	pushChoice('統合監査の設定', false);
+	sortChoice();
+	
+	// 164
+	q_list.push(new Question('ルートコンテナのみで管理されるものを3つ選択しなさい。',
+	'GOLD参考書113Pを参照'));
+	pushChoice('SYSTEM表領域', false);
+	pushChoice('制御ファイル', true);
+	pushChoice('REDOログファイル', true);
+	pushChoice('SYSAUX表領域', false);
+	pushChoice('UNDO表領域', true);
+	pushChoice('一時表領域', false);
+	sortChoice();
+	
+	// 165
+	q_list.push(new Question('PDBごとに実行できる操作として正しいものを3つ選択しなさい。',
+	'GOLD参考書114Pを参照'));
+	pushChoice('バックアップ／リカバリ', true);
+	pushChoice('アプリケーション用表領域の共有', false);
+	pushChoice('リソースマネージャの構成', true);
+	pushChoice('複数のCDBに同時に接続', false);
+	pushChoice('別のサーバへの移動', true);
+	sortChoice();
+	
+	// 166
+	q_list.push(new Question('マルチテナント環境に関する正しい説明を選択しなさい。',
+	'GOLD参考書115Pを参照'));
+	pushChoice('各PDBの管理はローカルユーザーでのみ管理ができる', false);
+	pushChoice('SYSTEM表領域はCDBのみに存在する', false);
+	pushChoice('パッチの適用はCDBレベルのみに行いPDBごとには行わなくてよい', true);
+	pushChoice('同じCDB内のPDB間では、データベースリンクを使用せずにアクセスできる', false);
+	sortChoice();
+	
+	// 167
+	q_list.push(new Question('CDBの作成方法として正しいものを2つ選択しなさい。',
+	'GOLD参考書116Pを参照'));
+	pushChoice('DBCAを使用して新規データベースをコンテナデータベースとして作成する', true);
+	pushChoice('既存の非CDBをCDBに変換する', false);
+	pushChoice('Oracle Enterprise Manager Database Expressを使用する', false);
+	pushChoice('Oracle Enterprise Manager Cloud Controlを使用する', false);
+	pushChoice('ENABLE PLUGGABLE DATABASE句を指定したCREATE DATABASE文を使用する', true);
+	sortChoice();
+	
+	// 168
+	q_list.push(new Question('次の実行結果を確認してください。'
+	+ '\n'
+	+ '\nSQL> CREATE DATABASE cdb2'
+	+ '\n  2  ENABLE PLUGGABLE DATABASE;'
+	+ '\nCREATE DATABASE cdb2'
+	+ '\n*'
+	+ '\nERROR at line 1:'
+	+ '\nORA-65093: container database not set up properly'
+	+ '\n'
+	+ '\nエラーが表示された原因として正しいものを選択しなさい。',
+	'GOLD参考書118Pを参照'));
+	pushChoice('CREATE DATABASE文にSEED句が指定されていない', false);
+	pushChoice('pdb_file_name_convertパラメータが設定されていない', false);
+	pushChoice('enable_pluggable_databaseパラメータがTRUEに設定されていない', true);
+	pushChoice('UNDO表領域名が指定されていない', false);
+	sortChoice();
+	
+	// 169
+	q_list.push(new Question('次の実行結果を確認してください。'
+	+ '\n'
+	+ '\nSQL> show parameter pdb'
+	+ '\n'
+	+ '\nNAME                  TYPE        VALUE'
+	+ '\n--------------------- ----------- ---------------------'
+	+ '\npdb_file_name_convert string      /disk1/, /disk2/'
+	+ '\n'
+	+ '\nSQL> show parameter db_create_file_dest'
+	+ '\n'
+	+ '\nNAME                  TYPE        VALUE'
+	+ '\n--------------------- ----------- ---------------------'
+	+ '\npdb_file_name_dest    string      /disk1'
+	+ '\n'
+	+ '\nSQL> CREATE DATABASE cdb2 ENABLE PLUGGABLE DATABASE'
+	+ '\n  2  SEED FILE_NAME_CONVERT=("/disk1/", "/disk3/");'
+	+ '\n'
+	+ '\n上記のSQL文実行後の状態として正しいものを2つ選択しなさい。'
+	+ '\n',
+	'GOLD参考書119Pを参照'));
+	pushChoice('ルートコンテナは/disk1に配置される', true);
+	pushChoice('ルートコンテナは/disk2に配置される', false);
+	pushChoice('ルートコンテナは/disk3に配置される', false);
+	pushChoice('シードPDBは/disk1に配置される', true);
+	pushChoice('シードPDBは/disk2に配置される', false);
+	pushChoice('シードPDBは/disk3に配置される', false);
+	pushChoice('シードPDBは存在しない', false);
+	sortChoice();
+	
+	// 170
+	q_list.push(new Question('以下のDUPLICATEコマンドによるデータベースの複製について、正しい説明をすべて選んでください。'
+	+ '\n'
+	+ '\nRMAN> DUPLICATE TARGET DATABASE TO cdb PLUGGABLE DATABASE pdb1, pdb2;',
+	'GOLD参考書120Pを参照'));
+	pushChoice('複製先ホストに新規CDBが作成され、そのCDB内にPDB1、PDB2が複製して作成される', false);
+	pushChoice('アクティブデータベース複製が実行される', false);
+	pushChoice('補助インスタンスの初期化パラメータとして、ENABLE_PLUGGABLE_DATABASE=trueが設定されている必要がある', true);
+	pushChoice('シードPDB(PDB$SEED)が複製される', true);
+	pushChoice('SPFILEが複製される', false);
+	sortChoice();
+	
+	// 171
+	q_list.push(new Question('現在、cdb1データベースには、pdb1、pdb2、pdb3のプラガブルデータベースが存在します。'
+	+ '\n次のコマンドを使用した場合の結果として正しいものを選択しなさい。'
+	+ '\n'
+	+ '\nDUPLICATE DATABASE TO cdb3'
+	+ '\n PLUGGABLE DATABASE pdb1'
+	+ '\n TABLESPACE pdb2:users;',
+	'GOLD参考書121Pを参照'));
+	pushChoice('FROM ACTIVE DATABASE句を指定しないためエラーとなる', false);
+	pushChoice('一部の表領域のみの指定はできないためエラーとなる', false);
+	pushChoice('PDB1とUSERS表領域を持つPDB2で構成されたCDB3が作成される', true);
+	pushChoice('USERS表領域のみを持つPDB1とPDB2で構成されたCDB3が作成される', false);
+	sortChoice();
+	
+	// 172
+	q_list.push(new Question('マルチテナントのデータディクショナリビューに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書121Pを参照'));
+	pushChoice('CDB_xxxビューにはすべてのコンテナからの結果が表示される', true);
+	pushChoice('CDB_xxxビューはルートでのみアクセスできる', false);
+	pushChoice('DBA_xxxビューにはCON_ID列が追加されている', false);
+	pushChoice('DBA_xxxビューには現コンテナに関する情報のみ表示される', true);
+	sortChoice();
+	
+	// 173
+	q_list.push(new Question('マルチテナントの名前やIDに関する規則として正しいものを2つ選択しなさい。',
+	'GOLD参考書122Pを参照'));
+	pushChoice('1つのCDB内でPDBには一意な名前が必要', true);
+	pushChoice('シードPDBのCON_IDは2である', true);
+	pushChoice('PDB名は大文字／小文字が区別される', false);
+	pushChoice('CDB名と同じPDB名を作成することができる', false);
+	pushChoice('PDB名を後から変更することはできない', false);
+	sortChoice();
+	
+	// 174
+	q_list.push(new Question('非CDB環境をマルチテナント環境に移行し、かつ、スキーマ構造を大幅に変更することになりました。'
+	+ '\n元の環境を残しながらテストを行う方法として適切なものを選択しなさい。',
+	'GOLD参考書123Pを参照'));
+	pushChoice('元の環境をPDBとして接続し、テスト後にPDBでフラッシュバックデータベース機能を使用する', false);
+	pushChoice('元の環境をPDBとして接続するときにファイルを新しい場所に配置する', true);
+	pushChoice('元の環境をCDBに変換し、対象となる表領域をクローニングする', false);
+	pushChoice('元の環境をPDBとして接続し、テスト後に切断すれば元に戻される', false);
+	sortChoice();
+	
+	// 175
+	q_list.push(new Question('以下のコマンドを実行したときの動作について、正しいものをすべて選んでください。'
+	+ '\n'
+	+ '\nSQL> CREATE PLUGGABLE DATABASE pdb9'
+	+ '\n  ADMIN USER pdb9admin IDENTIFIED BY Password123'
+	+ '\n  FILE_NAME_CONVERT=("/pdbseed/", "/pdb9/");',
+	'GOLD参考書123Pを参照'));
+	pushChoice('プラガブルデータベースPDB9が作成され、READ WRITEモードとなる', false);
+	pushChoice('プラガブルデータベースPDB9が作成され、MOUNTモードとなる', true);
+	pushChoice('デフォルト表領域が指定されていないため、プラガブルデータベースPDB9は作成されない', false);
+	pushChoice('pdb9adminユーザーにはPDB_DBAロールが付与される', true);
+	pushChoice('pdb9adminユーザーにはDBAロールが付与される', false);
+	pushChoice('pdb9adminユーザーにはSYSDBA権限が付与される', false);
+	pushChoice('pdb9adminユーザーにはCREATE SESSION権限のみが付与される', false);
+	sortChoice();
+	
+	// 176
+	q_list.push(new Question('次の実行結果を確認してください。'
+	+ '\nシードPDBのデータファイルは/disk1以下にあるものとします。'
+	+ '\n'
+	+ '\nSQL> show parameter pdb'
+	+ '\n'
+	+ '\nNAME                  TYPE       VALUE'
+	+ '\n--------------------- ---------- ----------------------'
+	+ '\npdb_file_name_convert string     /disk1/, /disk2/'
+	+ '\n'
+	+ '\nSQL> CREATE PLUGGABLE DATABASE pdb2'
+	+ '\n  2  ADMIN USER pdb2adm IDENTIFIED BY password;'
+	+ '\n'
+	+ '\n実行結果に関する説明として正しいものを3つ選択しなさい。',
+	'GOLD参考書124Pを参照'));
+	pushChoice('シードPDBをもとにpdb2が作成される', true);
+	pushChoice('現在接続しているPDBからpdb2がクローニングされる', false);
+	pushChoice('pdb2のファイルは元PDBと同じ場所に配置される', false);
+	pushChoice('pdb2のファイルは/disk2に配置される', true);
+	pushChoice('pdb2admユーザーが作成されPDB_DBAロールが付与される', true);
+	sortChoice();
+	
+	// 177
+	q_list.push(new Question('PDBのクローニングに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書125Pを参照'));
+	pushChoice('同じCDB内でのみクローニングすることができる', false);
+	pushChoice('STORAGE句でPDBが使用できる記憶域の量を制限することができる', true);
+	pushChoice('ファイルの配置はOMFが必要である', false);
+	pushChoice('ソースPDBをREAD ONLYでオープンする必要がある', true);
+	pushChoice('ソースPDBの一部の表領域だけをクローニングすることもできる', false);
+	sortChoice();
+	
+	// 178
+	q_list.push(new Question('以下のコマンドを実行したときの動作について、正しいものをすべて選んでください。'
+	+ '\nPDB1のデータファイルは/u01/oradata/pdb1/以下にあるものとします。'
+	+ '\n'
+	+ '\nSQL> CREATE PLUGGABLE DATABASE pdb2 FROM pdb1'
+	+ '\n       FILE_NAME_CONVERT = ("/u01/oradata/pdb1/", "/u02/oradata/pdb2/");',
+	'GOLD参考書126Pを参照'));
+	pushChoice('プラガブルデータベースPDB1をもとにプラガブルデータベースPDB2が作成され、READ ONLYモードとなる', false);
+	pushChoice('プラガブルデータベースPDB1をもとにプラガブルデータベースPDB2が作成され、MOUNTモードとなる', true);
+	pushChoice('デフォルト表領域が指定されていないため、プラガブルデータベースPDB1は作成されない', false);
+	pushChoice('PDB1に存在するローカルユーザーはPDB2にコピーされる', true);
+	pushChoice('PDB1に存在する共通ユーザーはPDB2にコピーされる', true);
+	pushChoice('PDB1に存在するローカルユーザーはPDB2にコピーされない', false);
+	sortChoice();
+	
+	// 179
+	q_list.push(new Question('3つのPDBが接続されている12.1のCDBを12.2にアップグレードすることになりました。'
+	+ '\nPDBのうちの1つを12.1のままで動作させる方法として適切なものを選択しなさい。',
+	'GOLD参考書126Pを参照'));
+	pushChoice('CDBを12.2にアップグレードしてもシードPDBは12.1のままのため、アップグレード後にシードPDBからPDBを新規作成する', false);
+	pushChoice('CDBのアップグレード後、12.1のままにするPDBをダウングレードする', false);
+	pushChoice('CDBのアップグレード前に12.1のままにするPDBを切断し、別の12.1のCDBに接続する', true);
+	pushChoice('CDBのアップグレードはオープンしているPDBにのみ影響するため、12.1のままにするPDBをクローズしておく', false);
+	sortChoice();
+	
+	// 180
+	q_list.push(new Question('PDBの切断（アンプラグ）に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書127Pを参照'));
+	pushChoice('切断するPDBはMOUNTモードまたはREAD ONLYモードでオープンしている必要がある', false);
+	pushChoice('切断するPDBはMOUNTモードである必要がある', true);
+	pushChoice('切断するPDBはREAD ONLYモードでオープンしている必要がある', false);
+	pushChoice('UNPLUG INTO句に指定したXMLファイルとしてメタデータが出力される', true);
+	pushChoice('DATAPUMP_DIRディレクトリオブジェクトに対応するディレクトリに、メタデータのダンプファイルがエクスポートされる', false);
+	pushChoice('切断されたPDBのデータファイルは自動的に削除される', false);
+	sortChoice();
+	
+	// 181
+	q_list.push(new Question('PDBの削除に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書128Pを参照'));
+	pushChoice('アンプラグまたはクローズしている必要がある', true);
+	pushChoice('削除するPDBはREAD ONLYでオープンしている必要がある', false);
+	pushChoice('シードPDBは削除できない', true);
+	pushChoice('INCLUDING DATAFILE句を指定することで、CDBの制御ファイルからの参照が削除される', false);
+	pushChoice('INCLUDING DATAFILE句を指定することで、物理的なファイルを保存することができる', false);
+	sortChoice();
+	
+	// 182
+	q_list.push(new Question('次の実行結果を確認してください。'
+	+ '\n'
+	+ '\nSQL> connect sys@salesdb'
+	+ '\nSQL> SELECT parameter, value FROM v$nls_parameters'
+	+ '\n  2  WHERE parameter LIKE "%CHARACTERSET";'
+	+ '\n'
+	+ '\nPARAMETER              VALUE   '
+	+ '\n---------------------- -------------------'
+	+ '\nNLS_CHARACTERSET       WE8ISO8859P1'
+	+ '\nNLS_NCHAR_CHARACTERSET AL16UTF16'
+	+ '\n'
+	+ '\nSQL> connect sys@syscdb1'
+	+ '\nSQL> SELECT parameter, value FROM v$nls_parameters'
+	+ '\n  2  WHERE parameter LIKE "%CHARACTERSET";'
+	+ '\n'
+	+ '\nPARAMETER              VALUE   '
+	+ '\n---------------------- -------------------'
+	+ '\nNLS_CHARACTERSET       WE8MSWIN1252'
+	+ '\nNLS_NCHAR_CHARACTERSET AL16UTF16'
+	+ '\n'
+	+ '\nsalesdbは非CDBです。'
+	+ '\n同じデータベースバージョンのcdb1に接続（プラグ）するための手順として正しいものを選択しなさい。',
+	'GOLD参考書128Pを参照'));
+	pushChoice('スーパーセットのキャラクタセットのためそのまま接続できる', true);
+	pushChoice('Unicodeに移行してからであれば接続できる', false);
+	pushChoice('異なるキャラクタセットを使用しているため接続できない', false);
+	pushChoice('RMANでCONVERT後であれば接続できる', false);
+	sortChoice();
+	
+	// 183
+	q_list.push(new Question('マルチテナント環境の接続に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書130Pを参照'));
+	pushChoice('パスワードファイル認証を使用すればPDBへのローカル接続が可能', false);
+	pushChoice('1つのリスナーのみを使用する場合、PDBへのサービス名はすべてのCDBにわたって一意な名前が必要', true);
+	pushChoice('CDBへの接続はリモート接続が必要', false);
+	pushChoice('別のPDBのオブジェクトへのアクセスはデータベースリンクを使用', true);
+	sortChoice();
+	
+	// 184
+	q_list.push(new Question('SQL*PLUSなどのOracleクライアントからPDBへ接続する方法で、正しいものをすべて選んでください。',
+	'GOLD参考書131Pを参照'));
+	pushChoice('PDBに対するネットサービス名を指定して接続する', true);
+	pushChoice('簡易接続を使用して接続する', true);
+	pushChoice('共通ユーザーでPDBに直接ローカル接続する', false);
+	pushChoice('共通ユーザーでPDBに接続を切り替える', true);
+	pushChoice('ローカルユーザーでPDBに直接ローカル接続する', false);
+	pushChoice('ローカルユーザーでPDBに接続を切り替える', false);
+	sortChoice();
+	
+	// 185
+	q_list.push(new Question('ALTER SESSION SET CONTAINER文に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書131Pを参照'));
+	pushChoice('ローカルユーザーのみ使用できる', false);
+	pushChoice('共有ユーザーのみ使用できる', true);
+	pushChoice('ローカルユーザー、共通ユーザーいずれも使用できる', false);
+	pushChoice('AFTER LOGONトリガーが実行される', false);
+	pushChoice('切り替え前トランザクションは継続する', true);
+	sortChoice();
+	
+	// 186
+	q_list.push(new Question('PDB1とPDB2が存在するCDB1があります。'
+	+ '\nPDB1とPDB2の間で分散トランザクションを使用したいという要望が上がっています。'
+	+ '\n必要な構成を選択しなさい。',
+	'GOLD参考書132Pを参照'));
+	pushChoice('デフォルトでPDB間の通信が有効なため、「オブジェクト名@PDB名」構文で、対象PDB上のオブジェクトにアクセスできる', false);
+	pushChoice('デフォルトでPDB間の通信が有効であるが、サービス名でアクセスが必要なため「オブジェクト名@サービス名」構文で、対象PDBにアクセスできるサービス名を使用する', false);
+	pushChoice('デフォルトでPDB間の通信が無効なため、明示的にデータベースリンクを使用し、「オブジェクト名@データベースリンク名」構文でアクセスする', true);
+	sortChoice();
+	
+	// 187
+	q_list.push(new Question('マルチテナントにおいて、リスナーに動的登録されるサービス名を2つ選択しなさい。',
+	'GOLD参考書132Pを参照'));
+	pushChoice('シードPDB名', false);
+	pushChoice('ルートコンテナ名', false);
+	pushChoice('データベース名', true);
+	pushChoice('PDB名', true);
+	sortChoice();
+	
+	// 188
+	q_list.push(new Question('PDBに独自のサービス名を設定する方法として正しいものを選択しなさい。',
+	'GOLD参考書133Pを参照'));
+	pushChoice('PDB独自のサービス名を追加することはできない', false);
+	pushChoice('シングル環境ではPDB独自のサービス名を追加することはできない', false);
+	pushChoice('DBMS_SERVICEパッケージか、SRVCTL、EM Cloud Controlを使用することでPDB独自のサービス名が追加される', true);
+	pushChoice('service_namesパラメータを変更することでPDB独自のサービス名が追加される', false);
+	sortChoice();
+	
+	// 189
+	q_list.push(new Question('CDBを起動したときの動作を正しい順序に並べたものを選択しなさい。'
+	+ '\n'
+	+ '\n1.シードPDBがREAD ONLYでオープン'
+	+ '\n2.インスタンスの起動'
+	+ '\n3.REDOログファイルとルートコンテナのデータファイルをオープン'
+	+ '\n4.制御ファイルをマウント'
+	+ '\n5.PDBをオープンするトリガーがあればシードPDB以外のPDBをオープン',
+	'GOLD参考書133Pを参照'));
+	pushChoice('2 → 4 → 1 → 3 → 5', false);
+	pushChoice('2 → 4 → 3 → 1 → 5', true);
+	pushChoice('2 → 4 → 3 → 5 → 1', false);
+	pushChoice('2 → 4 → 1 → 5 → 3', false);
+	sortChoice();
+	
+	// 190
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nCREATE OR REPLACE TRIGGER Open_All_PDBs'
+	+ '\nAFTER STARTUP ON DATABASE'
+	+ '\nBEGIN'
+	+ '\n  EXECUTE IMMEDIATE'
+	+ '\n  "ALTER PLUGGABLE DATABASE ALL OPEN";'
+	+ '\nEND;'
+	+ '\n/'
+	+ '\n'
+	+ '\n上記のトリガーによる処理が成功するタイミングとして正しいものを2つ選択しなさい。',
+	'GOLD参考書134Pを参照'));
+	pushChoice('CDBをREAD WRITEでオープンするとき', true);
+	pushChoice('CDBをREAD ONLYでオープンするとき', false);
+	pushChoice('CDBをRESETLOGSでオープンするとき', true);
+	pushChoice('CDBをRESTRICTEDモードでオープンするとき', false);
+	pushChoice('CDBに特権ユーザーがセッションを確立するとき', false);
+	sortChoice();
+	
+	// 191
+	q_list.push(new Question('PDBの起動と停止のオプションに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書135Pを参照'));
+	pushChoice('RESTRICTEDモードでオープンするとRESTRICTED SESSION権限を持つユーザーのみが接続できる', true);
+	pushChoice('READ ONLYモードでオープンしてもルートコンテナからは変更することができる', false);
+	pushChoice('オープン済みのPDBが存在してもALL OPENで残りをオープンすることができる', true);
+	pushChoice('ALTER PLUGGABLE DATABASE文によるOPENとCLOSEはCDBからのみ実行できる', false);
+	pushChoice('クローズ済みのPDBが存在する場合はALL EXCEPTでCLOSEする必要がある', false);
+	sortChoice();
+	
+	// 192
+	q_list.push(new Question('PDBの起動と停止に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書136Pを参照'));
+	pushChoice('CDBがオープンされると全PDBがマウントされる', false);
+	pushChoice('シードPDBをREAD WRITEでオープンすることはできないがCLOSEすることはできる', false);
+	pushChoice('すべてのPDBを一括でオープンすることができる', true);
+	pushChoice('PDBに接続した状態で他PDBをクローズすることはできない', true);
+	pushChoice('すべてのPDBをクローズするとCDBがクローズされる', false);
+	sortChoice();
+	
+	// 193
+	q_list.push(new Question('PDBの停止に関する説明として正しいものを選択しなさい。',
+	'GOLD参考書137Pを参照'));
+	pushChoice('PDBに接続してSHUTDOWNコマンドを実行するとインスタンスが停止される', false);
+	pushChoice('PDBのクローズは1つずつ行うか一括で行うことしかできない', false);
+	pushChoice('PDBをクローズせずにCDBを停止すると次回インスタンス起動時にリカバリが必要になる', false);
+	pushChoice('IMMEDIATE句を指定するとトランザクションがロールバックされ、セッションが切断される', true);
+	pushChoice('FORCEオプションを指定してPDBをOPENするとインスタンスリカバリが実行される', false);
+	sortChoice();
+	
+	// 194
+	q_list.push(new Question('マルチテナントの初期化パラメータに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書138Pを参照'));
+	pushChoice('CDBごとに初期化パラメータファイルを持つ', true);
+	pushChoice('PDBごとに初期化パラメータファイルを持つ', false);
+	pushChoice('PDBごとの初期化パラメータファイルはディクショナリに保存される', true);
+	pushChoice('PDBごとの初期化パラメータファイルは初期化パラメータファイルに保存される', false);
+	sortChoice();
+	
+	// 195
+	q_list.push(new Question('PDBの初期化パラメータを変更する方法として正しいものを選択しなさい。',
+	'GOLD参考書138Pを参照'));
+	pushChoice('ルートコンテナからSCOPE=PDB名で変更する', false);
+	pushChoice('PDBに接続して変更する。保存が不要ならSCOPE=MEMORYを使用する', true);
+	pushChoice('PDBに接続してSCORE=PDB名で変更する', false);
+	pushChoice('PDBに接続して変更する。SCOPEを指定することはできない', false);
+	pushChoice('PDBに接続して変更する。SCOPEを指定しても常にBOTHになる', false);
+	sortChoice();
+	
+	//196
+	q_list.push(new Question('SPFILEを使用するデータベースにおいて、SYSユーザーでCDB$ROOTに接続しています。'
+	+ '\n以下のコマンドを実行したときのWORK_AREA_SIZE_POLICY初期化パラメータの変更について正しいものをすべて選んでください。'
+	+ '\nなお、WORK_AREA_SIZE_POLICY初期化パラメータはPDBレベルで変更可能なパラメータです。'
+	+ '\n'
+	+ '\nSQL> ALTER SYSTEM SET WORK_AREA_SIZE_POLICY=MANUAL SCOPE=BOTH;',
+	'GOLD参考書139Pを参照'));
+	pushChoice('SPFILEとCDBインスタンスがMANUALに設定されます', true);
+	pushChoice('CDB$ROOTだけがMANUALに設定されます', false);
+	pushChoice('すべてのPDBに対して、MANUALに設定されます', false);
+	pushChoice('WORK_AREA_SIZE_POLICYパラメータが設定されているすべてのPDBに対して、MANUALが設定されます', false);
+	pushChoice('WORK_AREA_SIZE_POLICYパラメータが設定されていないすべてのPDBに対して、MANUALが設定されます', true);
+	sortChoice();
+	
+	// 197
+	q_list.push(new Question('SPFILEを使用するデータベースにおいて、SYSユーザーでプラガブルデータベースPDB1に接続しています。'
+	+ '\n以下のコマンドを実行したときのWORK_AREA_SIZE_POLICY初期化パラメータの変更について正しいものを選んでください。'
+	+ '\nなお、WORK_AREA_SIZE_POLICY初期化パラメータPDBレベルで変更可能なパラメータです。'
+	+ '\n'
+	+ '\nSQL> ALTER SYSTEM SET WORK_AREA_SIZE_POLICY=MANUAL SCOPE=SPFILE;',
+	'GOLD参考書139Pを参照'));
+	pushChoice('CDBインスタンスを再起動したタイミングで、PDB1に対してMANUALが設定されます', false);
+	pushChoice('CDBインスタンスを再起動したタイミングで、ルートコンテナに対してMANUALが設定されます', false);
+	pushChoice('PDB1を再オープンしたタイミングで、PDB1に対してMANUALが設定されます', true);
+	pushChoice('ALTER SYSTEM SET分の実行直後に、PDB1に対してMANUALが設定されます', false);
+	pushChoice('ALTER SYSTEM SET分の実行直後に、ルートコンテナに対してMANUALが設定されます', false);
+	pushChoice('ALTER SYSTEM SET文がエラーで失敗します', false);
+	sortChoice();
+	
+	// 198
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nALTER SYSTEM SET open_cursors=200 CONTAINER=ALL SCOPE=BOTH;'
+	+ '\n'
+	+ '\n実行に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書140Pを参照'));
+	pushChoice('CDBを再起動するとリセットされる', false);
+	pushChoice('現在オープンしているPDBにのみ反映される', false);
+	pushChoice('SPFILEに保存される', true);
+	pushChoice('ルートコンテナでのみ実行できる', true);
+	pushChoice('ルートコンテナ以外のPDBに片影される', false);
+	sortChoice();
+	
+	// 199
+	q_list.push(new Question('noncdb_compatible初期化パラメータがFALSEのCDBがあります。'
+	+ '\nPDBに接続して実行すると、エラーとなるSQL文を選択しなさい。',
+	'GOLD参考書141Pを参照'));
+	pushChoice('ALTER SYSTEM CHECKPOINT;', false);
+	pushChoice('ALTER SYSTEM SWITCH LOGFILE;', true);
+	pushChoice('ALTER SYSTEM FLUSH SHARED_POOL;', false);
+	pushChoice('ALTER SYSTEM FLUSH BUFFER_CACHE;', false);
+	pushChoice('いずれの文もエラーにならない', false);
+	sortChoice();
+	
+	// 200
+	q_list.push(new Question('マルチテナント環境の自動診断リポジトリに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書142Pを参照'));
+	pushChoice('PDBごとにアラートログファイルが存在する', false);
+	pushChoice('CDBごとにアラートログファイルが存在する', true);
+	pushChoice('アラートログにPDB情報は記録されない', false);
+	pushChoice('アラートログにPDB情報は記録される', true);
+	sortChoice();
+	
+	// 201
+	q_list.push(new Question('ALTER PLUGGABLE DATABASE文を使用して、PDBごとに変更できる句を4つ選択しなさい。',
+	'GOLD参考書142Pを参照'));
+	pushChoice('ENABLE BLOCK CHANGE TRACKING', false);
+	pushChoice('DEFAULT TABLESPACE', true);
+	pushChoice('DEFAULT TEMPORARY TABLESPACE', true);
+	pushChoice('STORAGE', true);
+	pushChoice('DATAFILE', true);
+	sortChoice();
+	
+	// 202
+	q_list.push(new Question('マルチテナントの表領域に関する説明として正しいものを選択しなさい。',
+	'GOLD参考書144Pを参照'));
+	pushChoice('1つの表領域は1つのコンテナのみに対応付けられる', true);
+	pushChoice('表領域はルートコンテナでのみ作成される', false);
+	pushChoice('CREATE DATABASE文でシードPDBに表領域を追加することはできない', false);
+	pushChoice('各PDBでデータファイルを共有することができる', false);
+	pushChoice('UNDO表領域をPDBで作成することができる', false);
+	sortChoice();
+	
+	// 203
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nSQL> CREATE TABLESPACE tbs01 DATAFILE "/disk1/tbs01.dbf" SIZE 10M;'
+	+ '\nSQL> ALTER DATABASE DEFAULT TABLESPACE tbs01;'
+	+ '\n'
+	+ '\n上記のコマンドをルートコンテナで実行したときの結果として正しいものを2つ選択しなさい。',
+	'GOLD参考書145Pを参照'));
+	pushChoice('既存ユーザーのデフォルト表領域が変更される', true);
+	pushChoice('既存ユーザーのデフォルト表領域は変更されない', false);
+	pushChoice('ルートコンテナのデフォルト永続表領域が変更される', true);
+	pushChoice('ルートコンテナと全PDBのデフォルト永続表領域が変更される', false);
+	pushChoice('ルートコンテナとシードPDBを除く全PDBのデフォルト永続表領域が変更される', false);
+	sortChoice();
+	
+	// 204
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nSQL> ALTER SESSION SET CONTAINER=pdb1;'
+	+ '\n'
+	+ '\nSQL> ALTER PLUGGABLE DATABASE'
+	+ '\n  2  STORAGE(MAX_SHARED_TEMP_SIZE 300M);'
+	+ '\n'
+	+ '\n上記のコマンドを実行した結果として正しいものを選択しなさい。',
+	'GOLD参考書145Pを参照'));
+	pushChoice('PDB1では最大300MBまでの一時表領域を作成できる', false);
+	pushChoice('最大300MBまでPDB1が共有一時表領域を使用できる', true);
+	pushChoice('最大300MBまでPDB1で表領域を作成できる', false);
+	pushChoice('このセッションでは最大300MBまでの一時表領域を使用できる', false);
+	sortChoice();
+	
+	// 205
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nSQL> CREATE USER scott IDENTIFIED BY tiger;'
+	+ '\n'
+	+ '\n上記コマンドをPDBで実行したときの結果として正しいものを2つ選択しなさい。',
+	'GOLD参考書146Pを参照'));
+	pushChoice('PDBのデフォルト一時表領域が設定されていない場合、CDBのSYSTEM表領域が使用される', false);
+	pushChoice('PDBのデフォルト一時表領域が設定されていない場合、PDBのSYSTEM表領域が使用される', false);
+	pushChoice('PDBのデフォルト一時表領域が設定されていない場合、CDBのデフォルト一時表領域が使用される', true);
+	pushChoice('PDBのデフォルト一時表領域が設定されている場合、PDBのデフォルト一時表領域が使用される', true);
+	pushChoice('PDBのデフォルト一時表領域が設定されている場合でも、CDBのデフォルト一時表領域が使用される', false);
+	sortChoice();
+	
+	// 206
+	q_list.push(new Question('マルチテナント環境のユーザーに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書148Pを参照'));
+	pushChoice('共通ユーザーはルートコンテナでのみ作成できる', true);
+	pushChoice('ローカルユーザーはすべてのコンテナで作成できる', false);
+	pushChoice('「CONTAINER=CURRENT」を指定しても共通ユーザーは全コンテナに作成される', false);
+	pushChoice('共通ユーザー名はC##で始める必要がある', true);
+	pushChoice('「CONTAINER=ALL」を指定すると各コンテナにローカルユーザーが作成される', false);
+	sortChoice();
+	
+	// 207
+	q_list.push(new Question('マルチテナント環境の共通ユーザー管理に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書149Pを参照'));
+	pushChoice('各PDBで削除することができる', false);
+	pushChoice('READ ONLYのPDBでは、次回READ WRITEになったときに追加される', true);
+	pushChoice('デフォルト表領域、一時表領域を指定する場合は、すべてのPDBに対象表領域が存在している必要がある', true);
+	pushChoice('権限がなくてもすべてのPDBに接続できる', false);
+	sortChoice();
+	
+	// 208
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nSQL> connect / as sysdba'
+	+ '\n'
+	+ '\nSQL> CREATE ROLE dbaRole CONTAINER=ALL;'
+	+ '\n'
+	+ '\n上記のSQL実行に関する説明として正しいものを選択しなさい。',
+	'GOLD参考書150Pを参照'));
+	pushChoice('すべてのPDBにロールが作成される', false);
+	pushChoice('ルートコンテナでロールは作成できないため、実行エラーとなる', false);
+	pushChoice('ルートコンテナでローカルロールは作成できないため、実行エラーとなる', true);
+	pushChoice('すべてのPDBにローカルロールが作成される', false);
+	sortChoice();
+	
+	// 209
+	q_list.push(new Question('マルチテナントのロール管理に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書150Pを参照'));
+	pushChoice('ローカルロールは、共通ユーザーまたはローカルユーザーに付与できる', true);
+	pushChoice('共通ロールは共通ユーザーにのみ付与できる', false);
+	pushChoice('共通ロールは別の共通ロールに付与できるが、ローカルロールには付与できない', false);
+	pushChoice('ルートコンテナにローカルロールを作成できる', false);
+	pushChoice('ルートコンテナでのみ共通ロールを作成できる', true);
+	sortChoice();
+	
+	// 210
+	q_list.push(new Question('管理者権限を持つユーザーが、PDBに接続して以下のコマンドを実行したときの動作について、正しい説明を選んでください。'
+	+ '\n'
+	+ '\nGRANT c##role1 TO c##role2;  ---(1)'
+	+ '\nGRANT c##role1 TO role3;     ---(2)'
+	+ '\nGRANT role3 TO c##role3;     ---(3)',
+	'GOLD参考書151Pを参照'));
+	pushChoice('PDBでは共通ロールに関する操作ができないため、すべてエラーで失敗する', false);
+	pushChoice('PDBでは共通ロールとローカルロールに関連する操作を実行できないため、(2)および(3)がエラーで失敗する', false);
+	pushChoice('PDBでは共通ロールに対してロールを付与できないため、(1)および(3)がエラーで失敗する', false);
+	pushChoice('すべて成功する', true);
+	sortChoice();
+	
+	// 211
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nSQL> GRANT CREATE TABLE TO c##x CONTAINER=CURRENT;'
+	+ '\n'
+	+ '\n上記のSQL実行に関する説明として正しいものを選択しなさい。',
+	'GOLD参考書152Pを参照'));
+	pushChoice('ルートコンテナでのみ実行可能', false);
+	pushChoice('PDBでのみ実行可能', false);
+	pushChoice('ルートコンテナで実行した場合はすべてのコンテナに反映される', false);
+	pushChoice('実行したコンテナのみに反映される', true);
+	sortChoice();
+	
+	// 212
+	q_list.push(new Question('管理者権限を持つユーザーが、CDB$ROOTで以下のコマンドを実行したときの動作について、正しい説明をすべて選んでください。'
+	+ '\n'
+	+ '\nCREATE ROLE c##a_role CONTAINER=ALL;'
+	+ '\nGRANT SELECT ON DBA_USERS TO c##a_role CONTAINER=ALL;'
+	+ '\nGRANT SET CONTAINER TO c##a_role;',
+	'GOLD参考書152Pを参照'));
+	pushChoice('ロールc##a_roleにDBA_USERSへのSELECTオブジェクト権限が共通に付与される', true);
+	pushChoice('ロールc##a_roleにDBA_USERSへのSELECTオブジェクト権限がローカルに付与される', false);
+	pushChoice('エラーにより、ロールc##a_roleへのDBA_USERSへのSELECTオブジェクト権限の付与が失敗する', false);
+	pushChoice('ロールc##a_roleにSET CONTAINERシステム権限が共通に付与される', false);
+	pushChoice('ロールc##a_roleにSET CONTAINERシステム権限がローカルに付与される', true);
+	pushChoice('エラーにより、ロールc##a_roleへのSET CONTAINERシステム権限の付与が失敗する', false);
+	sortChoice();
+	
+	// 213
+	q_list.push(new Question('管理者権限を持つユーザーが、CDB$ROOTにおける以下のコマンド実行結果を踏まえた、REVOKE文の実行結果で正しいものを選んでください。'
+	+ '\n'
+	+ '\nSQL> SELECT con_id, grantee, granted_role, admin_option, common FROM CDB_ROLE_PRIVS'
+	+ '\n  2    WHERE grantee="C##ADMIN";'
+	+ '\n'
+	+ '\n    CON_ID GRANTEE    GRANTED_ROLE           ADM COM'
+	+ '\n---------- ---------- ---------------------- --- ---'
+	+ '\n         1 C##A_ADMIN C##ROLE1               NO  YES'
+	+ '\n         3 C##A_ADMIN C##ROLE1               NO  YES'
+	+ '\n         4 C##A_ADMIN C##ROLE1               NO  YES'
+	+ '\n'
+	+ '\nSQL> REVOKE c##role1 FROM c##a_admin;',
+	'GOLD参考書153Pを参照'));
+	pushChoice('REVOKE文の実行は成功し、ルートコンテナでのみロール付与が取り消される', false);
+	pushChoice('REVOKE文の実行は成功し、すべてのコンテナでロール付与が取り消される', false);
+	pushChoice('REVOKE文にCONTAINER=ALLの指定がないため、ロール付与の取り消しが失敗する', true);
+	pushChoice('REVOKE文にCONTAINER=CURRENTの指定がないため、ロール付与の取り消しが失敗する', false);
+	sortChoice();
+	
+	// 214
+	q_list.push(new Question('管理ユーザーでルートコンテナに接続し、以下の手順で共通ロールC##CONNECTを作成しました。'
+	+ '\n'
+	+ '\nSQL> CREATE ROLE C##CONNECT;'
+	+ '\nSQL> GRANT CREATE TABLE TO C##CONNECT;'
+	+ '\n'
+	+ '\nその後、管理ユーザーでPDBに接続し、以下の手順でローカルユーザーを作成しました。'
+	+ '\n'
+	+ '\nSQL> CREATE USER user1 IDENTIFIED BY Password123;'
+	+ '\nSQL> GRANT CREATE SESSION to user1;'
+	+ '\nSQL> GRANT C##CONNECT to user1;'
+	+ '\n'
+	+ '\n作成したローカルユーザーuser1でPDBに接続した後、以下のコマンドを実行した結果について、正しいものを選んでください。',
+	'GOLD参考書154Pを参照'));
+	pushChoice('共通ロールC##CONNECTにCREATE TABLEシステム権限が付与されているため、成功する', false);
+	pushChoice('CREATE TABLE文の実行には特に権限が不要なため、成功する', false);
+	pushChoice('共通ロールC##CONNECTにCREATE TABLEシステム権限が付与されていないため、失敗する', true);
+	pushChoice('ローカルユーザーuser1への共通ロールC##CONNECTの付与は無効とみなされるため、失敗する', false);
+	sortChoice();
+	
+	// 215
+	q_list.push(new Question('マルチテナント内のスキーマ名とオブジェクト名に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書155Pを参照'));
+	pushChoice('スキーマ名はCDB内で一意にする必要がある', false);
+	pushChoice('オブジェクト名の解決は接続先PDBのみで行われる', true);
+	pushChoice('PUBLICスキーマは個々のPDBに存在する', true);
+	pushChoice('共通スキーマは全PDBで同じオブジェクトを共有する', false);
+	sortChoice();
+	
+	// 216
+	q_list.push(new Question('マルチテナントのデータディクショナリに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書156Pを参照'));
+	pushChoice('各PDBに必要なデータは、ディクショナリ定義も含め各PDBに格納されている', false);
+	pushChoice('メタデータリンクを使用してPDBに格納されたメタデータにアクセスが行われる', false);
+	pushChoice('メタデータリンクを使用してルートに格納されたメタデータにアクセスが行われる', true);
+	pushChoice('PDBにしか記録されないオブジェクトのデータはオブジェクトリンクを使用してアクセスが行われる', false);
+	pushChoice('ルートにしか記録されないオブジェクトのデータはオブジェクトリンクを使用してアクセスが行われる', true);
+	sortChoice();
+	
+	// 217
+	q_list.push(new Question('次の資料を確認してください。'
+	+ '\n'
+	+ '\nセッション1'
+	+ '\n---------------------------------------------------------------'
+	+ '\nSQL> connect sys@pdb1'
+	+ '\nSQL> SELECT con_id, username, FROM v$session WHERE type="USER";'
+	+ '\n'
+	+ '\nCON_ID USERNANE'
+	+ '\n------ --------'
+	+ '\n     3 SYS'
+	+ '\n---------------------------------------------------------------'
+	+ '\n'
+	+ '\nセッション2'
+	+ '\n---------------------------------------------------------------'
+	+ '\nSQL> connect c##u'
+	+ '\nSQL> SELECT con_id, username, FROM v$session WHERE type="USER";'
+	+ '\n'
+	+ '\nCON_ID USERNANE'
+	+ '\n------ --------'
+	+ '\n     1 DBSNMP'
+	+ '\n     1 C##U'
+	+ '\n     1 DBSNMP'
+	+ '\n---------------------------------------------------------------'
+	+ '\n'
+	+ '\n上記の結果に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書157Pを参照'));
+	pushChoice('セッション1はPDBに接続しているため、ほかのコンテナの結果が表示されない', true);
+	pushChoice('V$SESSIONは接続しているPDBの情報のみ表示されるため、ほかのコンテナの結果が表示されない', false);
+	pushChoice('セッション2はルートコンテナに接続しているが、PDB1に対するCONTAINER_DATA属性が設定されていないため、PDB1の結果が表示されない', true);
+	pushChoice('V$SESSIONで表示されるSYSユーザーのセッションは、接続しているPDBの情報のみ表示されるため、ほかのコンテナの結果が表示されない', false);
+	sortChoice();
+	
+	// 218
+	q_list.push(new Question('マルチテナントのバックアップに関する説明として正しいものを選択しなさい。',
+	'GOLD参考書159Pを参照'));
+	pushChoice('ルートコンテナでのみバックアップを取得することができる', false);
+	pushChoice('ルートコンテナのみのバックアップを取得することはできない', false);
+	pushChoice('ルートコンテナからPDB内の特定の表領域のみをバックアップすることはできない', false);
+	pushChoice('ルートコンテナからPDB内の特定のデータファイルのファイル名を指定してバックアップすることはできない', true);
+	pushChoice('ルートコンテナから特定のPDBのみをバックアップすることはできない', false);
+	sortChoice();
+	
+	// 219
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nRMAN> BACKUP DATABASE PLUS ARCHIVELOG;'
+	+ '\n'
+	+ '\n上記のコマンドをルートコンテナに接続して実行したときに取得されるバックアップファイルとして、正しいものを選択しなさい。',
+	'GOLD参考書160Pを参照'));
+	pushChoice('ルートコンテナの全データファイル、存在するすべてのアーカイブログ、制御ファイルとSPFILE', false);
+	pushChoice('ルートコンテナの全データファイル、存在するすべてのアーカイブログ', false);
+	pushChoice('CDBの全データファイル、存在するすべてのアーカイブログ、制御ファイルとSPFILE', true);
+	pushChoice('CDBの全データファイル、存在するすべてのアーカイブログ', false);
+	sortChoice();
+	
+	// 220
+	q_list.push(new Question('RMANでPDBに接続して以下のコマンドを実行したときの結果として、正しいものを1つ選んでください。'
+	+ '\nCDBはARCHIVELOGモードであるとします。'
+	+ '\n'
+	+ '\nRMAN> BACKUP DATABASE PLUS ARCHIVELOG DELETE INPUT;',
+	'GOLD参考書161Pを参照'));
+	pushChoice('エラーで失敗する', false);
+	pushChoice('データベースおよびアーカイブログファイルがバックアップされるが、バックアップされたアーカイブログが削除されない', false);
+	pushChoice('データベースおよびアーカイブログファイルがバックアップされ、バックアップされたアーカイブログが削除される', false);
+	pushChoice('データベースのみがバックアップされる。アーカイブログはバックアップされない', true);
+	sortChoice();
+	
+	// 221
+	q_list.push(new Question('PDBに接続しているときに実行できるバックアップ操作を選択しなさい。',
+	'GOLD参考書161Pを参照'));
+	pushChoice('BACKUP CURRENT CONTROLFILE;', true);
+	pushChoice('BACKUP ARCHIVELOG ALL;', false);
+	pushChoice('BACKUP TABLESPACE UNDOTBS1;', false);
+	pushChoice('BACKUP TABLESPACE TEMP;', false);
+	pushChoice('BACKUP PLUGGABLE DATABASE pdb1;', false);
+	sortChoice();
+	
+	// 222
+	q_list.push(new Question('マルチテナント環境の障害に対するリカバリ動作に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書162Pを参照'));
+	pushChoice('PDBがクラッシュすると、次回PDBをオープンする際にPDBのクラッシュリカバリが行われる', false);
+	pushChoice('欠落した一時ファイルの自動作成は、CDB／PDBがオープンするときに行われる', true);
+	pushChoice('ルートコンテナのSYSTEM表領域に属するデータファイル障害では、ルートコンテナのみ停止が必要', false);
+	pushChoice('クローズできないPDBのSYSTEM表領域に属するデータファイル障害では、CDBの停止が必要', true);
+	pushChoice('UNDO表領域の障害では、PDBをオープンしたままリカバリすることができる', false);
+	sortChoice();
+	
+	// 223
+	q_list.push(new Question('マルチテナントのリカバリに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書163Pを参照'));
+	pushChoice('ルートコンテナがオープンされるときにインスタンス障害に対するリカバリが実行される', true);
+	pushChoice('インスタンス障害に対するリカバリでは、PDBがオープンされる前にPDBのトランザクションのロールバックが実行される', false);
+	pushChoice('PDBで一時ファイルを明示的に再作成することはできない', false);
+	pushChoice('バックアップ制御ファイルを使用したリカバリの後で、各PDBをRESETLOGSでオープンする', false);
+	pushChoice('NOARCHIVELOGモードでは、特定のPDBファイルに障害が発生した場合でも、CDB全体（制御ファイルと全データファイル）をリストアすることになる', true);
+	sortChoice();
+	
+	// 224
+	q_list.push(new Question('すべてのPDBを停止する可能性がある障害を4つ選択しなさい。',
+	'GOLD参考書164Pを参照'));
+	pushChoice('ルートコンテナのSYSTEM表領域', true);
+	pushChoice('ルートコンテナのSYSAUX表領域', false);
+	pushChoice('PDBのSYSTEM表領域', true);
+	pushChoice('PDBのSYSAUX表領域', false);
+	pushChoice('PDBのUNDO表領域', false);
+	pushChoice('制御ファイル', true);
+	pushChoice('現行REDOロググループ', true);
+	sortChoice();
+	
+	// 225
+	q_list.push(new Question('PDBのデータファイル障害に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書165Pを参照'));
+	pushChoice('PDBがクローズ時にSYSTEM表領域をリカバリするにはCDBをマウントする', false);
+	pushChoice('PDBがオープン時にSYSTEM表領域をリカバリするにはCDBをマウントする', true);
+	pushChoice('PDBの非SYSTEM表領域の障害はルートコンテナからのみリカバリできる', false);
+	pushChoice('PDBの非SYSTEM表領域の障害はルートコンテナだけでなく対象PDBからもリカバリできる', true);
+	pushChoice('PDBのファイル障害はPDB全体をリカバリする必要がある', false);
+	sortChoice();
+	
+	// 226
+	q_list.push(new Question('マルチテナント環境におけるデータリカバリアドバイザについて正しい説明を2つ選んでください。',
+	'GOLD参考書165Pを参照'));
+	pushChoice('CDB$ROOTに接続してデータリカバリアドバイザを使用すると、CDB$ROOTの障害のみが表示される', false);
+	pushChoice('CDB$ROOTに接続してデータリカバリアドバイザを使用すると、CDB$ROOTおよびPDBの障害が表示される', true);
+	pushChoice('CDB$ROOTに接続してデータリカバリアドバイザを使用すると、エラーが発生し、正常に実行できない', false);
+	pushChoice('PDBに接続してデータリカバリアドバイザを使用すると、CDB#ROOTの障害のみが表示される', false);
+	pushChoice('PDBに接続してデータリカバリアドバイザを使用すると、CDB#ROOTおよびPDBの障害が表示される', false);
+	pushChoice('PDBに接続してデータリカバリアドバイザを使用すると、エラーが発生し、正常に実行できない', true);
+	sortChoice();
+	
+	// 227
+	q_list.push(new Question('マルチテナント環境で可能なPoint-in-Timeリカバリを3つ選択しなさい。',
+	'GOLD参考書166Pを参照'));
+	pushChoice('CDB全体', true);
+	pushChoice('PDB全体', true);
+	pushChoice('ルートコンテナの各表領域', false);
+	pushChoice('PDB内の各表領域', false);
+	pushChoice('ユーザーデータ用表領域', true);
+	sortChoice();
+	
+	// 228
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nRMAN> connect target /'
+	+ '\nRMAN> ALTER PLUGGABLE DATABASE pdb1 CLOSE;'
+	+ '\nRMAN> RUN{'
+	+ '\n2  SET UNTIL SCN 2332059;'
+	+ '\n3  RESTORE PLUGGABLE DATABASE pdb1;'
+	+ '\n4  RECOVER PLUGGABLE DATABASE pdb1'
+	+ '\n5    AUXILIARY DESTINATION "/disk3";'
+	+ '\n6 }'
+	+ '\nRMAN> ALTER PLUGGABLE DATABASE pdb1 OPEN RESETLOGS;'
+	+ '\n'
+	+ '\n上記のコマンドの実行に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書167Pを参照'));
+	pushChoice('REDOログファイルの再作成が行われる', false);
+	pushChoice('REDOログのログ順序番号が1にリセットされる', false);
+	pushChoice('PDBのインカーネーション番号が変更される', true);
+	pushChoice('CDBのインカーネーション番号が変更される', false);
+	pushChoice('制御ファイルの内容が変更される', true);
+	sortChoice();
+	
+	// 229
+	q_list.push(new Question('マルチテナントのフラッシュバックデータベースに関する説明として正しいものを選択しなさい。',
+	'GOLD参考書168Pを参照'));
+	pushChoice('ルートコンテナのみをフラッシュバックすることができる', false);
+	pushChoice('ルートコンテナのみがフラッシュバックされる', false);
+	pushChoice('フラッシュバックデータベースはPDBごとに有効化できる', false);
+	pushChoice('PDB PITRターゲット以前でもそのままフラッシュバックできる', false);
+	pushChoice('RESETLOGS前にPDBをREAD ONLYでオープンすることができる', true);
+	sortChoice();
+	
+	// 230
+	q_list.push(new Question('これまで正常なパフォーマンスを維持してきたデータベースにおいて、予期しないパフォーマンスのダウンが発生しました。'
+	+ '\nパフォーマンスが正常だった時間帯とパフォーマンスがダウンしていた時間帯を比較して、パフォーマンスダウンの原因を特定することを考えています。'
+	+ '\nこの目的に最も適切なツールを選択してください。',
+	'GOLD参考書169Pを参照'));
+	pushChoice('AWRレポート', false);
+	pushChoice('データベースリプレイ', false);
+	pushChoice('リアルタイムADDM', false);
+	pushChoice('期間比較ADDM', true);
+	pushChoice('リソースマネージャ', false);
+	sortChoice();
+	
+	// 231
+	q_list.push(new Question('これまで正常なパフォーマンスを維持してきたデータベースにおいて、予期しない著しいパフォーマンスのダウンが発生しました。'
+	+ '\nデータベースに接続することもできない状況です。'
+	+ '\nこの問題の分析をすみやかに行うために、最も適切なツールを選択してください。',
+	'GOLD参考書170Pを参照'));
+	pushChoice('直近のAWRレポート', false);
+	pushChoice('ASH', false);
+	pushChoice('データリカバリアドバイザ', false);
+	pushChoice('リアルタイムADDM', true);
+	pushChoice('SQLパフォーマンスアナライザ', false);
+	sortChoice();
+	
+	// 232
+	q_list.push(new Question('PDB間で制限できるリソースを2つ選択しなさい。',
+	'GOLD参考書171Pを参照'));
+	pushChoice('CPUリソース', true);
+	pushChoice('UNDO使用量', false);
+	pushChoice('パラレル実行サーバー', true);
+	pushChoice('アクティブセッションタイム', false);
+	pushChoice('アイドル時間', false);
+	sortChoice();
+	
+	// 233
+	q_list.push(new Question('CDBリソース計画の定義内で、PDBに割り当てたリソースを制限するディレクティブを2つ選択しなさい。',
+	'GOLD参考書171Pを参照'));
+	pushChoice('max_utilization_limit', false);
+	pushChoice('utilization_limit', true);
+	pushChoice('parallel_target_percentage', false);
+	pushChoice('parallel_server_limit', true);
+	pushChoice('parallel_servers_target', false);
+	sortChoice();
+	
+	// 234
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nDBMS_RESOURCE_MANAGER.UPDATE_CDB_AUTOTASK_DIRECTIVE('
+	+ '\n  plan                      => "daytime_plan",'
+	+ '\n  new_shares                => 1,'
+	+ '\n  new_utilization_limit     => 75,'
+	+ '\n  new_parallel_server_limit => 50);'
+	+ '\n'
+	+ '\n上記のコマンドを実行した結果として正しいものを選択しなさい。',
+	'GOLD参考書172Pを参照'));
+	pushChoice('対象プラン内のすべてのディレクティブが変更される。', false);
+	pushChoice('既存のディレクティブすべてが変更される', false);
+	pushChoice('今後作成されるディレクティブに影響する', false);
+	pushChoice('自動化メンテナンスタスクの実行に影響する', true);
+	sortChoice();
+	
+	// 235
+	q_list.push(new Question('次の実行結果を確認してください。'
+	+ '\n'
+	+ '\nSQL> SELECT plan, pluggable_database "PDB"'
+	+ '\n  2         shares, utilization_limit, paralell_server_limit'
+	+ '\n  3  FROM dba_cdb_rsrc_plan_directives;'
+	+ '\n'
+	+ '\nPLAN             PDB                        SHA  UTI  PAR'
+	+ '\n---------------- ------------------------- ---- ---- ----'
+	+ '\n...'
+	+ '\nDAYTIME_PLAN     ORA$AUTOTASK                     90  100'
+	+ '\nDAYTIME_PLAN     PDB1                         1  100   70'
+	+ '\nDAYTIME_PLAN     PDB2                         2'
+	+ '\nDAYTIME_PLAN     PDB3                         1   50   80'
+	+ '\nDAYTIME_PLAN     ORA$DEFAULT_PDB_DIRECTIVE    1   20  100'
+	+ '\n'
+	+ '\nこの環境に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書173Pを参照'));
+	pushChoice('PDBに割り当てられたリソースは無制限で利用できる', false);
+	pushChoice('ORA$AUTOTASKのshare値は「1」が設定される', false);
+	pushChoice('ORA$AUTOTASKとORA$DEFAULT_PDB_DIRECTIVEは自動で作成される', true);
+	pushChoice('PDB2にはほかのPDBの2倍のリソース割り当てが行われる', true);
+	sortChoice();
+	
+	// 236
+	q_list.push(new Question('次の実行結果を確認してください。'
+	+ '\n'
+	+ '\nSQL> SELECT plan, pluggable_database "PDB"'
+	+ '\n  2         shares, utilization_limit, paralell_server_limit'
+	+ '\n  3  FROM dba_cdb_rsrc_plan_directives;'
+	+ '\n'
+	+ '\nPLAN             PDB                        SHA  UTI  PAR'
+	+ '\n---------------- ------------------------- ---- ---- ----'
+	+ '\n...'
+	+ '\nDAYTIME_PLAN     ORA$AUTOTASK                     90  100'
+	+ '\nDAYTIME_PLAN     PDB1                         1  100   70'
+	+ '\nDAYTIME_PLAN     PDB2                         2'
+	+ '\nDAYTIME_PLAN     PDB3                         1   50   80'
+	+ '\nDAYTIME_PLAN     ORA$DEFAULT_PDB_DIRECTIVE    1   20  100'
+	+ '\n'
+	+ '\nこの環境に関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書173Pを参照'));
+	pushChoice('PDBに割り当てられたリソースは無制限で利用できる', false);
+	pushChoice('ORA$AUTOTASKのshare値は「1」が設定される', false);
+	pushChoice('ORA$AUTOTASKとORA$DEFAULT_PDB_DIRECTIVEは自動で作成される', true);
+	pushChoice('PDB2にはほかのPDBの2倍のリソース割り当てが行われる', true);
+	sortChoice();
+	
+	// 237
+	q_list.push(new Question('CDBリソース計画を有効化する方法として正しいものを2つ選択しなさい。',
+	'GOLD参考書174Pを参照'));
+	pushChoice('各PDBのresource_manager_planパラメータにCDBリソース計画を設定する', false);
+	pushChoice('ルートコンテナでresource_manager_planパラメータにCDBリソース計画を設定する', true);
+	pushChoice('サービスを使用してCDBリソース計画を設定する', false);
+	pushChoice('スケジューラのジョブクラスを使用してCDBリソース計画を設定する', false);
+	pushChoice('スケジューラのウィンドウを使用してCDBリソース計画を設定する', true);
+	sortChoice();
+	
+	// 238
+	q_list.push(new Question('PDBレベルで設定するリソースマネージャーに関する説明として正しいものを3つ選択しなさい。',
+	'GOLD参考書174Pを参照'));
+	pushChoice('単一レベルのリソース計画のみ可能', true);
+	pushChoice('複数レベルのリソース計画が可能', false);
+	pushChoice('1つのプランで最大8つのコンシューマグループまで可能', true);
+	pushChoice('1つのプランで9つ以上のコンシューマグループも可能', false);
+	pushChoice('サブプランを設定できない', true);
+	pushChoice('サブプランを設定できる', false);
+	sortChoice();
+	
+	// 239
+	q_list.push(new Question('リソース計画が構成済みの非CDBをPDBに変換する際の扱いとして正しいものを2つ選択しなさい。',
+	'GOLD参考書175Pを参照'));
+	pushChoice('PDBの制限に違反していなければディクショナリに保存されるが使用できない', false);
+	pushChoice('PDBの制限に違反していなければそのまま使用される', true);
+	pushChoice('PDBの制限に違反している場合は同等の計画に変換される', true);
+	pushChoice('PDBの制限に違反している場合はPDBへの変換エラーとなる', false);
+	pushChoice('PDBの制限に違反している場合はディクショナリから削除される', false);
+	sortChoice();
+	
+	// 240
+	q_list.push(new Question('次の実行結果を確認してください。'
+	+ '\n'
+	+ '\nSQL> SELECT tablespace_name, file_name FROM dba_data_files;'
+	+ '\n'
+	+ '\nTABLESPACE_NAME FILE_NAME'
+	+ '\n--------------- -------------------------------------------'
+	+ '\nSYSTEM          /u01/app/oracle/oradata/orcl/system01.dbf'
+	+ '\nSYSAUX          /u01/app/oracle/oradata/orcl/sysaux01.dbf'
+	+ '\nSALES01         /u01/app/oracle/oradata/orcl/sales01.dbf'
+	+ '\nUSERS           /u01/app/oracle/oradata/orcl/users01.dbf'
+	+ '\nEXAMPLE         /u01/app/oracle/oradata/orcl/example01.dbf'
+	+ '\nUNDOTBS1        /u01/app/oracle/oradata/orcl/undotbs1.dbf'
+	+ '\nSALES02         /u01/app/oracle/oradata/orcl/sales02.dbf'
+	+ '\n'
+	+ '\n$ expdp system DUMPFILE=full.dmp FULL=y TRANSPORTABLE=always'
+	+ '\n'
+	+ '\nexpdpコマンド実行によりエクスポートされる表領域を選択しなさい。'
+	+ '\n'
+	+ '\n',
+	'GOLD参考書176Pを参照'));
+	pushChoice('SYSTEM、SYSAUX、UNDOTBS1、USERS、EXAMPLE、SALES01、SALES02', false);
+	pushChoice('SYSTEM、SYSAUX、UNDOTBS1、USERS', false);
+	pushChoice('USERS、EXAMPLE、SALES01、SALES02', true);
+	pushChoice('EXAMPLE、SALES01、SALES02', false);
+	pushChoice('SALES01、SALES02', false);
+	sortChoice();
+	
+	// 241
+	q_list.push(new Question('全体トランスポータブルに関する説明として正しいものを2つ選択しなさい。',
+	'GOLD参考書177Pを参照'));
+	pushChoice('ユーザー定義表領域はすべて読み取り専用にする必要がある', true);
+	pushChoice('異なるエンディアン形式のデータベースに転送することはできない', false);
+	pushChoice('Oracle Database 11gのデータベースをソースにする場合はVERSION=12を指定する', true);
+	pushChoice('NETWORK_LINKを使用した転送はサポートされていない', false);
+	sortChoice();
+	
+	// 242
+	q_list.push(new Question('以下のコマンドを実行したときの動作について正しい説明を選んでください。'
+	+ '\n'
+	+ '\n$ expdp SYSTEM/Password123@PDB1 FULL=YES TRANSPORTABLE=ALWAYS'
+	+ '\n>   DUMPFILE=dpdir1:fullexp1%U.dmp, dpdir2:fullexp2%U.dmp, dpdir3:fullexp3%U.dmp'
+	+ '\n>   FILESIZE=400M PARALELL=3 JOB_NAME=fullexp',
+	'GOLD参考書178Pを参照'));
+	pushChoice('DUMPFILEには複数のファイルを指定できないため、コマンドは失敗する', false);
+	pushChoice('DUMPFILEのファイル名に使用できない記号が含まれているため、コマンドは失敗する', false);
+	pushChoice('PDBに対して完全トランスポータブルを実行できないため、コマンドは失敗する', false);
+	pushChoice('3つのダンプファイルについて並列度3でエクスポート処理が同時実行される', true);
+	pushChoice('1つのダンプファイルについて並列度3でエクスポート処理が同時実行される。ダンプファイルのファイルサイズが400Mに達したら、引き続き別のダンプファイルに対して並列度3でエクスポート処理が実行される', false);
+	sortChoice();
+	
+	// 243
+	q_list.push(new Question('SQL*Loaderの特徴について正しいものをすべて選んでください。',
+	'GOLD参考書178Pを参照'));
+	pushChoice('PDBに対する1つのロード実行で使用できるデータファイルは1つのみです', false);
+	pushChoice('ロード処理を実行するためには必ず制御ファイルが必要です', false);
+	pushChoice('データファイルのキャラクタセットは、データベースのキャラクタセットと一致している必要があります', false);
+	pushChoice('条件に合致するデータのみを選択的にロードできます', true);
+	pushChoice('ロード時にデータに連番を付与できます', true);
+	sortChoice();
+	
+	// 244
+	q_list.push(new Question('複数の非CDBをPDBとしてマルチテナント環境に統合することを検討しています。'
+	+ '\n統合後、性能上の問題が出ないかどうかをあらかじめ調査する方法として、適切なものを選んでください。'
+	+ '\nなお、調査のために統合環境と同等のハードウェアをテスト環境として使用できるものとします。',
+	'GOLD参考書179Pを参照'));
+	pushChoice('AWRレポートを参考に最も負荷の高いSQL文を選び、テストシステムでSQLパフォーマンスアナライザを使用する', false);
+	pushChoice('AWRレポートを参考に最も負荷の高いSQL文を選び、テストシステムでSQLチューニングアナライザを使用する', false);
+	pushChoice('それぞれの非CDBの本番ワークロードをキャプチャし、データベースリプレイでワークロードを再生することを非CDBの数だけ繰り返す', false);
+	pushChoice('それぞれの非CDBの本番ワークロードをキャプチャし、データベース統合リプレイを使用して、すべてのPDBのすべての実動システムのワークロードを同時に再生する', true);
+	pushChoice('CDBのリソース計画を構成して、各PDBが使用できるリソースを制限する', false);
+	sortChoice();
+	
+	// 245
+	q_list.push(new Question('統合監査について正しい説明をすべて選んでください。',
+	'GOLD参考書180Pを参照'));
+	pushChoice('デフォルトでSQL*Loaderダイレクトパスロード操作について監査が取得されます', false);
+	pushChoice('デフォルトでRMANバックアップ操作について監査が取得されます', true);
+	pushChoice('監査証跡は、SYSTEM表領域に保管されます', false);
+	pushChoice('監査証跡は、SYSAUX表領域に保管されます', true);
+	pushChoice('完全な統合監査モードへ移行するためには、初期化パラメータUNFIED_AUDITをTRUEに設定します', false);
+	pushChoice('AUDIT POLICY文を実行して、どのユーザーに対して監査ポリシーを適用するかを指定します', true);
+	sortChoice();
+	
+	// 246
+	q_list.push(new Question('次のコマンドに関する説明として正しいものを2つ選択しなさい。'
+	+ '\n'
+	+ '\nSQL> ALTER DATABASE CLEAR UNARCHIVED LOGFILE GROUP 3;',
+	'SILVER参考書119Pを参照'));
+	pushChoice('CURRENT、ACTIVEなステータスのREDOロググループでは実行できない', false);
+	pushChoice('コマンド後にデータベース全体の完全バックアップを取得する必要がある', true);
+	pushChoice('アーカイブログが作成されていなくても、REDOロググループが消去される', true);
+	pushChoice('REDOロググループ数が2つの場合は実行できない', false);
+	sortChoice();
+	
+	// 247
+	q_list.push(new Question('ADDMに関する説明として正しいものを2つ選択しなさい。',
+	'SILVER参考書134Pを参照'));
+	pushChoice('AWRスナップショット作成後に自動で実行される', true);
+	pushChoice('データ障害に対する診断と修復オプションを提供する', false);
+	pushChoice('必要以上に領域を使用している表や索を検索する', false);
+	pushChoice('予防的なデータベースの監視のためのボトルネックの検出と解決方法を提供する', true);
+	sortChoice();
+	
+	// 248
+	
+	q_list.push(new Question('データベースの再起動に関係なくDBA_OUTSTANDING_ALERTSビューで確認できるアラートを2つ選択しなさい。',
+	'SILVER参考書137Pを参照'));
+	pushChoice('「スナップショットが古すぎます」アラート', false);
+	pushChoice('再開可能セッションの一時停止アラート', false);
+	pushChoice('メトリックベースのアラート', true);
+	pushChoice('「リカバリ領域の空き容量が不足しています」アラート', false);
+	pushChoice('表領域の使用率アラート', true);
+	sortChoice();
+	
+	// 249
+	q_list.push(new Question('Oracle Database 12cのAWRスナップショットに関する説明として正しいものを選択しなさい。',
+	'SILVER参考書138Pを参照'));
+	pushChoice('スナップショット間隔を0に設定すると自動スナップショットの取得ができなくなるが、手動でのスナップショット作成は可能である', false);
+	pushChoice('保存期間を0に設定するとSYSAUX表領域の空き領域が不足している場合、自動的に古いスナップショットセットから削除される', true);
+	pushChoice('保存期間を0に設定すると自動パージが無効になる', false);
+	pushChoice('上位SQL文はデフォルトですべて取得される', false);
+	pushChoice('デフォルトで7日間保持される', false);
+	sortChoice();
+	
+	// 250
+	q_list.push(new Question('自動化メンテナンスタスクで自動実行されるタスクを3つ選択しなさい。',
+	'SILVER参考書140Pを参照'));
+	pushChoice('ADDM', false);
+	pushChoice('オプティマイザ統計の収集', true);
+	pushChoice('セグメントアドバイザ', true);
+	pushChoice('SQLアクセスアドバイザ', false);
+	pushChoice('自動SQLチューニング', true);
+	sortChoice();
+	
+	// 251
+	q_list.push(new Question('SQLパフォーマンスアナライザやデータベースリプレイの実行が適切なシナリオを3つ選択しなさい。',
+	'SILVER参考書143Pを参照'));
+	pushChoice('データベースのアップグレードのテスト', true);
+	pushChoice('異なるデータベースバージョンにおけるテスト', true);
+	pushChoice('クライアントアプリケーション変更におけるテスト', false);
+	pushChoice('異なるハードウェアにおけるテスト', true);
+	pushChoice('非RAC環境のネットワーク帯域幅変更におけるテスト', false);
+	sortChoice();
+	
+	//252
+	q_list.push(new Question('Oracle Database 12cのオプティマイザに関する説明として正しいものを2つ選択しなさい。',
+	'SILVER参考書144Pを参照'));
+	pushChoice('初回のハード解析時にのみ適応問い合わせ最適化が実行される', false);
+	pushChoice('2回目以降の同一SQL実行時でも適応問い合わせ最適化によるハード解析が施行される', true);
+	pushChoice('optimizer_adaptive_reporting_only=FALSEの場合に適応問い合わせ最適化が使用される', true);
+	pushChoice('オプティマイザ統計情報がロックされていない場合に適応計画が使用される', false);
+	sortChoice();
+	
+	// 253
+	q_list.push(new Question('SQL計画ディレクティブに関する説明として正しいものを2つ選択しなさい。',
+	'SILVER参考書144Pを参照'));
+	pushChoice('SYSAUX表領域に保存される', true);
+	pushChoice('特定のSQLにのみ対応する', false);
+	pushChoice('一定期間使用されないと自動で削除される', true);
+	pushChoice('明示的にフラッシュする必要がある', false);
+	pushChoice('ADDMによって取得される', false);
+	sortChoice();
+	
+	// 254
+	q_list.push(new Question('オプティマイザ統計を収集することで実行計画が変化する可能性のあるSQL文があります。'
+	+ '\n影響を検証し、問題のないことを確認してから新しい実行計画を使用する方法として正しいものを選択しなさい。',
+	'SILVER参考書147Pを参照'));
+	pushChoice('OPTIMIZER_USE_PENDING_STATISTICSパラメータをTRUEにして統計を収集する', false);
+	pushChoice('PUBLISHプリファレンスをFALSEにして統計を収集する', true);
+	pushChoice('OPTIMIZER_USE_SQL_PLAN_BASELINESパラメータをFALSEにして統計を収集する', false);
+	pushChoice('自動メンテナンスタスクのウィンドウ時間を変更する', false);
+	sortChoice();
+	
+	// 255
+	q_list.push(new Question('次のコマンドを確認してください。'
+	+ '\n'
+	+ '\nSQL> exec DBMS_STATS.SET_TABLE_PREFS("SH", "SALES", "PUBLISH", "FALSE")'
+	+ '\n'
+	+ '\n今後の動作として正しい説明を選択しなさい。',
+	'SILVER参考書152Pを参照'));
+	pushChoice('今後のオプティマイザ統計収集では、FORCEオプションをTRUEにしない限りエラーとなる', false);
+	pushChoice('今後のオプティマイザ統計収集はプライベート領域に保存され、DBMS_STATS.PUBLISH_PENDING_STATSを使用して公開するまで使用されない', true);
+	pushChoice('今後のオプティマイザ統計収集では履歴情報が保存されないため、リストアできなくなる', false);
+	pushChoice('今後収集するオプティマイザ統計情報を使用できるのはSHユーザーのみで、その他のユーザーは利用できなくなる', false);
+	sortChoice();
+	
+	// 256
+	q_list.push(new Question('Oracle Database 12cの自動化メンテナンスタスクによるオプティマイザ統計収集に関する説明として正しいものを2つ選択しなさい。',
+	'SILVER参考書156Pを参照'));
+	pushChoice('オブジェクト統計とシステム統計が収集される', false);
+	pushChoice('リソース使用率の上限までの範囲で、複数のセグメントや複数のパーティションに対する同時実行性が利用される', true);
+	pushChoice('データが5％以上変更されているセグメントが対象になる', false);
+	pushChoice('オプティマイザ統計情報が欠落または失効しているセグメントが対象になる', true);
+	sortChoice();
+	
+	// 257
+	q_list.push(new Question('オプティマイザによる実行計画作成に影響を与えるものを2つ選択しなさい。',
+	'SILVER参考書157Pを参照'));
+	pushChoice('OS統計情報', false);
+	pushChoice('初期化パラメータ', true);
+	pushChoice('SQLプロファイル', false);
+	pushChoice('オプティマイザ統計情報', true);
+	pushChoice('SQL計画ベースライン', false);
+	sortChoice();
+	
+	// 258
+	q_list.push(new Question('自動SQLチューニングに関する説明として正しいものを選択しなさい。',
+	'SILVER参考書158Pを参照'));
+	pushChoice('SQLプロファイル、オプティマイザ統計収集、索引の追加、SQL文の再構築が自動で行われる', false);
+	pushChoice('メンテナンスウィンドウによって実行される', true);
+	pushChoice('SQLチューニングアドバイザとSQLアクセスアドバイザが実行される', false);
+	pushChoice('対象となるSQLは、SQLチューニングセットで決定される', false);
+	sortChoice();
+	
+	// 259
+	q_list.push(new Question('アプリケーションの終了指示が不適切なためにロック取得したままのセッションが多数あるという報告がありました。'
+	+ '\nロック競合も多いため、それらのセッションを一定時間で切断する必要があります。'
+	+ '\n実現方法として適切なものを選択しなさい。',
+	'SILVER参考書161Pを参照'));
+	pushChoice('Blocked User Session Countメトリックのしきい値', false);
+	pushChoice('リソースマネージャーのMAX_IDLE_BLOCKER_TIMEディレクティブ', true);
+	pushChoice('プロファイルのIDLE_TIMEリソースパラメータ', false);
+	pushChoice('RESUMABLE_TIMEOUTパラメータによる再開可能領域割り当て', false);
+	sortChoice();
+	
+	// 260
+	q_list.push(new Question('リソースマネージャーに関する説明として正しいものを2つ選択しなさい。',
+	'SILVER参考書161Pを参照'));
+	pushChoice('自動化メンテナンスタスクで使用するメンテナンスウィンドウがオープンすると、DEFAULT_MAINTENANCE_PLANが割り当てられる', true);
+	pushChoice('アクティブなリソースプランの一部ではないコンシューマグループに属するユーザーはOTHER_GROUPSとして処理される', true);
+	pushChoice('デフォルトでユーザーの初期コンシューマグループとしてOTHER_GROUPSが設定されている', false);
+	pushChoice('SYSユーザーのみ、デフォルトで初期コンシューマグループとしてSYS_GROUPグループが設定されている', false);
 	sortChoice();
 }());
 
