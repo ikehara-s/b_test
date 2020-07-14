@@ -111,6 +111,68 @@ function sortQuestion(){
 	pushChoice('CDB1とPDB1のコミットされていないトランザクションはロールバックされる。', false);
 	pushChoice('PDB1がクローズされる。', true);
 	sortChoice();
+	
+	リカバリアドバイザを用いて障害を修復します。
+リカバリアドバイザについて正しい説明を2つ選択しなさい。
+
+1.リカバリアドバイザでLIST FAILUREコマンドを使用するときはMOUNT状態である必要がある。
+正.NOMOUNT状態である必要がある。
+
+2.リカバリアドバイザでCHANGE FAILUREコマンドは障害の優先度を変更することができる。
+
+3.リカバリアドバイザはデータベースがクローズされているときに使用できる。
+正.NOMOUNT以上の状態のときに使用できる。
+
+4.リカバリアドバイザは能動的に障害をチェックできる。
+
+5.障害は修復された場合のみクローズすることができる。
+正.手動で障害を修復してCHANGE FAILUREコマンドでもクローズできる。
+
+
+RMANを用いた暗号化について正しい説明を2つ選択しなさい。
+
+1.RMANはパスワードファイルを暗号化できる。
+
+2.SET ENCRYPTIONコマンドはCONFIGURE ENCRYPTIONコマンドの設定をオーバーライドする。
+
+3.CONFIGURE ENCRYPTIONコマンドでパスワード暗号化を永続設定できる。
+
+4.デュアルモード暗号化はパスワードとキーストアの両方が使用可能な場合のみリストアが可能である。
+
+5.RMANの暗号下キーはデータベースキーストアに保存される。
+
+
+
+SQL> SELECT PLUGGABLE_DATABASE, SHARES, PARALLEL_SERVER_LIMIT
+  2  FROM DBA_CDB_RSRC_PLAN_DIRECTIVES WHERE PLAN = 'MY_PLAN'
+  3  ORDER BY PLUGGABLE_DATABASE;
+
+PLUGABBLE_DATABASE         SHARES   PARALLEL_SERVER_LIMIT
+-------------------------- -------- ---------------------
+ORA$AUTOTASK                                          100
+ORA$DEFAULT_PDB_DIRECTIVE         1                     0
+PDB1                              2                   100
+PDB2                              2                    25
+PDB3                              1                    
+
+SQL> SELECT NAME, VALUE FROM V$PARAMETER
+  2  WHERE NAME = 'RESOURCE_MANAGER_PLAN';
+
+NAME                   VALUE
+---------------------- -------------
+RESOURCE_MANAGER_PLAN  MY_PLAN
+
+PDB1 40% * 100% = 40%
+PDB2 40% * 25% = 10%
+PDB3 20% * 100% = 20%
+が接続している場合は、それぞれ上記の値が最低保証となる。
+PDB1のみが接続している場合は100%リソースを使用できる。
+
+
+
+RMANを使用せずに実行されるバックアップ、リストア、およびリカバリについて正しい説明を3つ選択しなさい。
+バックアップモードでバックアップを実行するためにはARCHIVELOGモードで実行する必要がある。
+
 }());
 
 (function(){
