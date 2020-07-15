@@ -109,10 +109,10 @@ function sortQuestion(){
 	+ '\nPDBはMOUNT状態となる。'
 	+ '\nCDBはOPEN状態のままである。'));
 	pushChoice('CDB1はマウント状態である', false);
-	pushChoice('PDB1のコミットされていないトランザクションはロールバックされる', false);
+	pushChoice('PDB1のコミットされていないトランザクションはロールバックされる', true);
 	pushChoice('CDB1はシャットダウンされる', false);
 	pushChoice('CDB1とPDB1のコミットされていないトランザクションはロールバックされる', false);
-	pushChoice('PDB1はクローズされる', false);
+	pushChoice('PDB1はクローズされる', true);
 	sortChoice();
 	
 	// 02(RMANバックアップの圧縮および暗号化)
@@ -123,9 +123,9 @@ function sortQuestion(){
 	+ '\nSET ENCRYPTIONコマンドは、CONFIGURE ENCRYPTIONコマンドで指定された暗号化設定をオーバーライドする。'));
 	pushChoice('CONFIGURE ENCRYPTIONコマンドを使用して、パスワード暗号化を永続的に構成できる', false);
 	pushChoice('デュアルモード暗号化バックアップは、暗号化に使用されたパスワードとキーストアの両方が使用可能な場合にのみリストアできる', false);
-	pushChoice('RMAN暗号化キーはデータベースキーストアに格納される', false);
+	pushChoice('RMAN暗号化キーはデータベースキーストアに格納される', true);
 	pushChoice('RMANはOracleデータベースのパスワードファイルを暗号化できる', false);
-	pushChoice('SET ENCRYPTIONコマンドは、CONFIGURE ENCRYPTIONコマンドで指定された暗号化設定をオーバーライドする', false);
+	pushChoice('SET ENCRYPTIONコマンドは、CONFIGURE ENCRYPTIONコマンドで指定された暗号化設定をオーバーライドする', true);
 	sortChoice();
 	
 	// 03(コンポーネントを管理するためのOracle Restartの設定および使用)
@@ -158,7 +158,62 @@ function sortQuestion(){
 	pushChoice('ORCLデータベースインスタンスとASMインスタンスが起動される', false);
 	pushChoice('ORCLデータベースインスタンスが起動される', false);
 	pushChoice('ORCLデータベースインスタンスと+DATAおよび+FRAディスクグループが起動される', false);
-	pushChoice('ORCLデータベースインスタンス、Oracle ASMインスタンス、+DATAおよび+FRAディスクグループ、およびLISTENERが起動される', false);
+	pushChoice('ORCLデータベースインスタンス、Oracle ASMインスタンス、+DATAおよび+FRAディスクグループ、およびLISTENERが起動される', true);
+	sortChoice();
+	
+	// 04(CDBおよびPDBのバックアップとリカバリの実行、ローカルUNDOモードと共有UNDOモードの比較)
+	q_list.push(new Question('次のSQLコマンドを実行します。'
+	+ '\n'
+	+ '\nSQL> SELECT PDB_NAME, NAME, PDB_RESTORE_POINT, CLEAN_PDB_RESTORE_POINT'
+	+ '\n  2  FROM V$RESTORE_POINT NATURAL JOIN DBA_PDBS;'
+	+ '\n'
+	+ '\nPDB_NAME NAME PDB_RESTORE_POINT CLEAN_PDB_RESTORE_POINT'
+	+ '\n-------- ---- ----------------- -----------------------'
+	+ '\nPDB1     R1   YES               NO'
+	+ '\n'
+	+ '\nSQL> SELECT PROPERTY_NAME, PROPERTY_VALUE'
+	+ '\n  2  FROM DATABASE_PROPERTIES WHERE PROPERTY_NAME LIKE "%UNDO%";'
+	+ '\n'
+	+ '\nPROPERTY_NAME      PROPERTY_VALUE'
+	+ '\n------------------ --------------'
+	+ '\nLOCAL_UNDO_ENABLED FALSE'
+	+ '\n'
+	+ '\nCDBのオンラインRMANバックアップは、復元ポイントR1が作成される1時間前に行われました。'
+	+ '\nPDB1を復元してポイントR1を復元するために、何をすればよいでしょうか。',
+	'12c R1では、PDBに対してフラッシュバック・データベースは実行できません。'
+	+ '\nそのため、PDBを過去の時点に戻したい場合は、RMANによるPoint-in-Timeリカバリ（不完全リカバリ）を使用します。'
+	+ '\nRMANでバックアップセットおよびアーカイブREDOログファイルからUNDO、SYSTEMおよびSYSAUXの各表領域を補助データベース上のCDBにリカバリし、そのデータを用いてターゲットデータベース上のPDBを目標時点にリカバリします。'
+	+ '\n'
+	+ '\nRMAN> RESTORE PLUGGABLE DATABASE...'
+	+ '\nRMAN> RECOVER PLUGGABLE DATABASE...'
+	+ '\n'
+	+ '\nなお、復旧する目標地点の指定として使用できる「リストアポイント」について、12c R1では対象のPDBのみ参照・使用できるリストアポイントを作成することはできません。'
+	+ '\n12c R1では、CDB全体またはCDB内の複数のPDBに対して、特定の時点にリカバリすることができる「CDBリストアポイント」のみ作成できます。'
+	+ '\nCDBリストアポイントは、どのPDBからでもリストアポイントの存在を確認することができます。'
+	+ '\nこれは、仮に利用者ごとにPDBを割り当てた場合、他の利用者が作成したリストアポイントの内容が見えてしまうことを意味します。'
+	+ '\n'
+	+ '\n12c R2からマルチテナント環境でのUNDOモード「ローカルUNDOモード」が追加されたことにより、PDBにもフラッシュバック・データベースが実行できるようになりました。'
+	+ '\nローカルUNDOモードは、PDBごとにUNDO表領域をもつデータベースの構成です。'
+	+ '\n12c R2ではデフォルトでローカルUNDOモードになっています。'
+	+ '\n'
+	+ '\nSQL> FLASHBACK PLUGGABLE DATABASE...'
+	+ '\n'
+	+ '\n共有UNDOモードでflashback pluggable databaseコマンドを実行すると、コマンド名に反して、内部的にはPoint-in-Timeリカバリが実行されます。'
+	+ '\nこのため、事前にバックアップを取得しておく必要がありますし、補助データベース用の領域を確保しておく必要もあります。'
+	+ '\nただし、共有UNDOモードでもインプレースでPDBフラッシュバック・データベースを使用することができる方法があります。'
+	+ '\nそれは、リカバリする地点として「クリーンPDBリストアポイント」を指定した場合です。'
+	+ '\nクリーンPDBリストアポイントとは、12c R2から追加された機能であり、データの読み取り一貫性がとれた時点のリストアポイントです。'
+	+ '\nPDBがクローズされており、未処理のトランザクションが存在しない場合に作成することができます。'
+	+ '\n'
+	+ '\n共有UNDOモード'
+	+ '\nRMAN> FLASHBACK PLUGGABLE DATABASE...'
+	+ '\n共有UNDOモード(CLEAN_RESTORE_POINT)'
+	+ '\nSQL> FLASHBACK PLUGGABLE DATABASE...'));
+	pushChoice('CDB $ ROOTに接続しているときに、SQLを使用してFLASHBACK PLUGGABLE DATABASE PDB1を実行する', false);
+	pushChoice('完全な復元ポイントがないため、これは実行できない', false);
+	pushChoice('PDB1に接続しているときに、SQLを使用してFLASHBACK PLUGGABLE DATABASE PDB1を実行する', false);
+	pushChoice('PDB1に接続した状態でRMANを使用してFLASHBACK PLUGGABLE DATABASE PDB1を実行する', false);
+	pushChoice('CDB $ ROOTに接続しているときにRMANを使用して、FLASHBACK PLUGGABLE DATABASE PDB1を実行する', true);
 	sortChoice();
 }());
 
