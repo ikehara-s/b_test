@@ -86,93 +86,80 @@ function sortQuestion(){
 
 //問題作成
 (function(){
-    // 001
-	q_list.push(new Question('以下の通りにデータベースが構成されています。'
+	// 01(CDBとPDBの起動、停止および可用性の管理)
+	q_list.push(new Question('次の構成のデータベースがある。'
 	+ '\n'
-	+ '\n* CDB1はコンテナデータベースです。'
-	+ '\n* PDB1およびPDB2は、CDB1のプラガブルデータベースです。'
-	+ '\n* PDB1およびPDB2は、READ WRITEモードでOPENしています。'
+	+ '\nCDB1はコンテナデータベースである。'
+	+ '\nPDB1、PDB2はプラガブルデータベースである。'
+	+ '\nPDB1、PDB2は読み取り／書き込みモードでオープンしています。'
 	+ '\n'
-	+ '\n次のコマンドを正常に実行します。'
+	+ '\n次のコマンドを実行しました。'
 	+ '\n'
-	+ '\n$ export ORACLE SID=CDB1'
+	+ '\n$ export ORACLE_SID=CDB1'
 	+ '\n$ sqlplus / as sysdba'
 	+ '\n'
 	+ '\nSQL> ALTER SESSION SET CONTAINER = PDB1;'
-	+ '\nSession altered.'
+	+ '\nSession altere.'
 	+ '\n'
 	+ '\nSQL> SHUTDOWN IMMEDIATE'
 	+ '\n'
-	+ '\nコマンドの結果として正しい説明を2つ選択してください。',
-	''));
-	pushChoice('CDB1はマウント状態となる。', false);
-	pushChoice('PBD1のコミットされていないトランザクションはロールバックされる。', true);
-	pushChoice('CDB1がシャットダウンされる。', false);
-	pushChoice('CDB1とPDB1のコミットされていないトランザクションはロールバックされる。', false);
-	pushChoice('PDB1がクローズされる。', true);
+	+ '\n結果として正しい説明を2つ選択しなさい。',
+	'PDBをSHUTDOWNコマンドで停止するための前提条件：現在のユーザーにSYSDBA、SYSOPER、SYSBACKUPまたはSYSDGシステム権限がある。'
+	+ '\nPDBに接続してSHUTDOWN IMMEDIATEコマンドを実行すると、コミットされていないトランザクションはロールバックされる。'
+	+ '\nPDBはMOUNT状態となる。'
+	+ '\nCDBはOPEN状態のままである。'));
+	pushChoice('CDB1はマウント状態である', false);
+	pushChoice('PDB1のコミットされていないトランザクションはロールバックされる', false);
+	pushChoice('CDB1はシャットダウンされる', false);
+	pushChoice('CDB1とPDB1のコミットされていないトランザクションはロールバックされる', false);
+	pushChoice('PDB1はクローズされる', false);
 	sortChoice();
 	
-	リカバリアドバイザを用いて障害を修復します。
-リカバリアドバイザについて正しい説明を2つ選択しなさい。
-
-1.リカバリアドバイザでLIST FAILUREコマンドを使用するときはMOUNT状態である必要がある。
-正.NOMOUNT状態である必要がある。
-
-2.リカバリアドバイザでCHANGE FAILUREコマンドは障害の優先度を変更することができる。
-
-3.リカバリアドバイザはデータベースがクローズされているときに使用できる。
-正.NOMOUNT以上の状態のときに使用できる。
-
-4.リカバリアドバイザは能動的に障害をチェックできる。
-
-5.障害は修復された場合のみクローズすることができる。
-正.手動で障害を修復してCHANGE FAILUREコマンドでもクローズできる。
-
-
-RMANを用いた暗号化について正しい説明を2つ選択しなさい。
-
-1.RMANはパスワードファイルを暗号化できる。
-
-2.SET ENCRYPTIONコマンドはCONFIGURE ENCRYPTIONコマンドの設定をオーバーライドする。
-
-3.CONFIGURE ENCRYPTIONコマンドでパスワード暗号化を永続設定できる。
-
-4.デュアルモード暗号化はパスワードとキーストアの両方が使用可能な場合のみリストアが可能である。
-
-5.RMANの暗号下キーはデータベースキーストアに保存される。
-
-
-
-SQL> SELECT PLUGGABLE_DATABASE, SHARES, PARALLEL_SERVER_LIMIT
-  2  FROM DBA_CDB_RSRC_PLAN_DIRECTIVES WHERE PLAN = 'MY_PLAN'
-  3  ORDER BY PLUGGABLE_DATABASE;
-
-PLUGABBLE_DATABASE         SHARES   PARALLEL_SERVER_LIMIT
--------------------------- -------- ---------------------
-ORA$AUTOTASK                                          100
-ORA$DEFAULT_PDB_DIRECTIVE         1                     0
-PDB1                              2                   100
-PDB2                              2                    25
-PDB3                              1                    
-
-SQL> SELECT NAME, VALUE FROM V$PARAMETER
-  2  WHERE NAME = 'RESOURCE_MANAGER_PLAN';
-
-NAME                   VALUE
----------------------- -------------
-RESOURCE_MANAGER_PLAN  MY_PLAN
-
-PDB1 40% * 100% = 40%
-PDB2 40% * 25% = 10%
-PDB3 20% * 100% = 20%
-が接続している場合は、それぞれ上記の値が最低保証となる。
-PDB1のみが接続している場合は100%リソースを使用できる。
-
-
-
-RMANを使用せずに実行されるバックアップ、リストア、およびリカバリについて正しい説明を3つ選択しなさい。
-バックアップモードでバックアップを実行するためにはARCHIVELOGモードで実行する必要がある。
-
+	// 02(RMANバックアップの圧縮および暗号化)
+	q_list.push(new Question('RMAN暗号化について正しい説明を2つ選択しなさい。',
+	'CONFIGURE ENCRYPTIONコマンドで永続設定可能なのは暗号化キーによるバックアップのみ。'
+	+ '\nデュアルモード暗号化は通常はOracleウォレットを使用してリストアするが、パスワードでもリストアできる暗号化モードである。'
+	+ '\nRMAN暗号化キーはデータベースキーストアに格納される。'
+	+ '\nSET ENCRYPTIONコマンドは、CONFIGURE ENCRYPTIONコマンドで指定された暗号化設定をオーバーライドする。'));
+	pushChoice('CONFIGURE ENCRYPTIONコマンドを使用して、パスワード暗号化を永続的に構成できる', false);
+	pushChoice('デュアルモード暗号化バックアップは、暗号化に使用されたパスワードとキーストアの両方が使用可能な場合にのみリストアできる', false);
+	pushChoice('RMAN暗号化キーはデータベースキーストアに格納される', false);
+	pushChoice('RMANはOracleデータベースのパスワードファイルを暗号化できる', false);
+	pushChoice('SET ENCRYPTIONコマンドは、CONFIGURE ENCRYPTIONコマンドで指定された暗号化設定をオーバーライドする', false);
+	sortChoice();
+	
+	// 03(コンポーネントを管理するためのOracle Restartの設定および使用)
+	q_list.push(new Question('次の構成のデータベースがある。'
+	+ '\n'
+	+ '\nORCLデータベースのデータファイルは、ASMディスクグループ +DATA にあります。'
+	+ '\nORCLは高速リカバリ領域にディスクグループ +FRA を使用します。'
+	+ '\nLISTENERはORCLのリスナーです。'
+	+ '\nデータベース、リスナー、ASMインスタンス、およびASMディスクグループは、Oracle Restartによって管理されます。'
+	+ '\nすべてのコンポーネントは現在シャットダウンされています。'
+	+ '\n次のコマンドを実行します。'
+	+ '\n'
+	+ '\n$ srvctl start database -d ORCL'
+	+ '\n'
+	+ '\nコマンドの結果として正しいものを説明しなさい。',
+	'クラスタ・データベースとその有効化されたインスタンスおよびデータベース・インスタンスが存在するノードのすべてのリスナーを起動します。'
+	+ '\nOracle Restartで自動的に再起動されるOracleコンポーネント：'
+	+ '\n・データベース・インスタンス'
+	+ '\nOracle Restartは1台のホスト・コンピュータで複数のデータベースに対応できます。'
+	+ '\n・Oracle Netリスナー'
+	+ '\n・データベース・サービス'
+	+ '\nインストール時に作成されたデフォルトのサービスは、Oracle Databaseによって自動的に管理されるため、含まれません。また、データベースの作成時に作成されるデフォルトのサービスも含まれません。'
+	+ '\n・Oracle Automatic Storage Management(Oracle ASM)インスタンス'
+	+ '\n・Oracle ASMディスク・グループ'
+	+ '\nディスク・グループの再起動はディスク・グループのマウントを指します。'
+	+ '\n・Oracle Notification Services(ONS)'
+	+ '\nスタンドアロン・サーバー環境では、高速アプリケーション通知(FAN)を介したプライマリ・データベースとスタンバイ・データベース間の接続のフェイルオーバーを自動化するために、Oracle Data GuardのインストールでONSを使用できます。ONSは、フェイルオーバーの際にFANイベントを統合されているクライアントに送信するサービスです。'
+	+ '\n'));
+	pushChoice('ORCLデータベースインスタンス、Oracle ASMインスタンス、および+DATAおよび+FRAディスクグループが起動される', false);
+	pushChoice('ORCLデータベースインスタンスとASMインスタンスが起動される', false);
+	pushChoice('ORCLデータベースインスタンスが起動される', false);
+	pushChoice('ORCLデータベースインスタンスと+DATAおよび+FRAディスクグループが起動される', false);
+	pushChoice('ORCLデータベースインスタンス、Oracle ASMインスタンス、+DATAおよび+FRAディスクグループ、およびLISTENERが起動される', false);
+	sortChoice();
 }());
 
 (function(){
