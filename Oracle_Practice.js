@@ -247,7 +247,7 @@ function sortQuestion(){
 	+ '\n'
 	+ '\nPDBシードにUNDO表領域を作成します。次に例を示します。'
 	+ '\nSQL> REATE UNDO TABLESPACE seedundots1'
-	+ '\n  2  DATAFILE 'seedundotbs_1a.dbf''
+	+ '\n  2  DATAFILE "seedundotbs_1a.dbf"'
 	+ '\n  3  SIZE 10M AUTOEXTEND ON'
 	+ '\n  4  RETENTION GUARANTEE;'
 	+ '\n'
