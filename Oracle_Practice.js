@@ -409,6 +409,9 @@ function sortQuestion(){
 	pushChoice('パッチが適用されたOracleデータベースのホームに切り替える', true);
 	pushChoice('既存のOracleデータベースのホームを同じサーバー上のOracleソフトウェアの新しいリリースに切り替える', false);
 	sortChoice();
+	
+	// https://www.examtopics.com/exams/oracle/1z0-083/view/5/
+	// 09()
 }());
 
 (function(){
