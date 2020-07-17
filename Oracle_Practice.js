@@ -324,7 +324,7 @@ function sortQuestion(){
 	pushChoice('両方のコンテナーデータベースをローカルUNDOモードで構成する必要がある', false);
 	sortChoice();
 	
-	// 07()
+	// 07(PDBの構造の確認、アプリケーションPDBの作成および管理)
 	q_list.push(new Question('CDBの共通オブジェクトについて正しい説明を2つ選択しなさい。',
 	'オブジェクト・タイプ'
 	+ '\nSHARING値'
@@ -369,6 +369,45 @@ function sortQuestion(){
 	pushChoice('アプリケーションルートでのみ作成することができる', true);
 	pushChoice('CDB$ROOTでのみ作成することができる', false);
 	pushChoice('アプリケーションコンテナ内のユーザー定義スキーマにのみ作成することができる', false);
+	sortChoice();
+	
+	// 08(高速ホーム・プロビジョニング)
+	q_list.push(new Question('次のコマンドについて確認しなさい。'
+	+ '\n'
+	+ '\n$ rhpctl move database -sourcehome Oracle_home_path -destinationhome Oracle_home_path'
+	+ '\n'
+	+ '\nこのコマンドを使用する目的として正しい説明を2つ選択しなさい。',
+	'移動元の作業用コピーまたはOracleホームから、1つ以上のデータベースをパッチ適用済作業用コピーに移動するには、rhpctl move databaseコマンドを使用します。'
+	+ '\nパッチ適用済作業用コピーは存在していなくてもかまいません。動的に作成できます。'
+	+ '\nその場合は、パッチ適用済作業用コピーの作成元のイメージ名を指定する必要があります。'
+	+ '\n'
+	+ '\n-sourcewc workingcopy_name'
+	+ '\nデータベースの移動元の作業用コピーの名前を指定します。'
+	+ '\n'
+	+ '\n-sourcehome Oracle_home_path'
+	+ '\n移動元のOracleホーム・パスを指定します。'
+	+ '\n'
+	+ '\n-oraclebase Oracle_base_path'
+	+ '\nOracleデータベース・ホームをプロビジョニングするORACLE_BASEパスを指定します(ORACLEDBSOFTWAREイメージ・タイプのみで必要)。'
+	+ '\n'
+	+ '\n-patchedwc workingcopy_name'
+	+ '\nデータベースの移動先の作業用コピーの名前を指定します。'
+	+ '\n'
+	+ '\n-client cluster_name'
+	+ '\nクライアント・クラスタの名前を指定します。'
+	+ '\n'
+	+ '\n-dbname unique_db_name'
+	+ '\nプロビジョニングするデータベースの一意の名前(DB_UNIQUE_NAME)を指定します。'
+	+ '\n'
+	+ '\n使用例：'
+	+ '\nある作業用コピーで実行しているすべてのデータベースを別の作業用コピーにローリング・モードで移動するには、次のコマンドを実行します。'
+	+ '\nrhpctl move database -sourcewc prodHomeV1 -patchedwc prodHomeV2 -client prodcluster -dbname prod1db'
+	+ '\nこの例では、パッチ適用済作業用コピーprodHomeV2が存在する必要があります。'));
+	pushChoice('集中型高速ホームプロビジョニングサーバーを使用しているときにOracleデータベースホームを切り替える', false);
+	pushChoice('ロールバック操作の一部として前のOracleホームに戻す', true);
+	pushChoice('読取り専用のOracleホームに切り替える', false);
+	pushChoice('パッチが適用されたOracleデータベースのホームに切り替える', true);
+	pushChoice('既存のOracleデータベースのホームを同じサーバー上のOracleソフトウェアの新しいリリースに切り替える', false);
 	sortChoice();
 }());
 
