@@ -4169,6 +4169,336 @@ F. オンラインのトランザクション処理システムは、多くの�
 
 ANSWER A, B, F
 
+
+//=============================================================================
+// 43
+//=============================================================================
+
+データベースはARCHIVELOGモードで構成されています。
+完全なRMANバックアップが行われ、制御ファイルのトレース対象のバックアップは行われていません。
+メディア障害が発生しました。
+完全リカバリが可能なシナリオとして正しいものを2つ選択しなさい。
+
+A. 最新のバックアップの前または後のアーカイブログが破損している場合。
+B. 制御ファイルのすべてのコピーを失った後。
+C. 最新のバックアップ後のアーカイブログを失った後。
+D. 最新のバックアップ前のアーカイブログを失った後。
+E. SYSTEMテーブルスペースを失った後。
+
+ANSWER D, E
+
+//=============================================================================
+// 44
+//=============================================================================
+
+データベースのPoint-in-Timeリカバリについて正しい説明を3つ選択しなさい。
+
+A. データベースのPoint-in-Timeリカバリを実行するには、データベースにFLASHBACK DATABASE ONが必要です。
+B. データベースのPoint-in-Timeリカバリを実行するとき、データベースはMOUNT状態である必要があります。
+C. データベースのPoint-in-Timeリカバリは、マネージドリカバリプロセス（MRP）によって実行されます。
+D. データベースはARCHIVELOGモードである必要があります。
+E. リカバリのターゲットポイントは、stimeまたはシステム変更番号（SCN）として指定する必要があります。
+F. データベースのPoint-in-Timeリカバリの後、データベースはRESETLOGSで開いている必要があります。
+
+ANSWER B, D, F
+
+
+//=============================================================================
+// 45
+//=============================================================================
+
+SQLチューニングアドバイザについて正しい説明を3つ選択しなさい。
+
+A. 分析中の各クエリをチェックして、古くなった統計がないか調べます。
+B. 分析中の各クエリをチェックして、欠落している統計がないか調べます。
+C. SQL文の構文変更のみを推奨します。
+D. SQLステートメントに対する意味上の変更を推奨できます。
+E. アドバイザータスクによって分析されているすべてのSQLステートメントを1つのグループと見なします。
+F. パフォーマンスが低下しているSQLステートメントごとにSQLプロファイルを作成して、退行を防ぎます。
+
+Which three are true about the SQL Tuning Advisor? (Choose three.)
+A. It checks each query being analyzed for stale statistics.
+B. It checks each query being analyzed for missing statistics.
+C. It only recommends syntactic changes to SQL statements.
+D. It can recommend semantic changes to SQL statements.
+E. It considers all SQL statements being analyzed by the advisor task as a group.
+F. It builds SQL profiles for each poorly performing SQL statement to prevent regressions.
+
+ANSWER A, B, D
+
+
+//=============================================================================
+// 46
+//=============================================================================
+
+RMANでのプラガブルデータベース（PDBs）の複製について正しい説明を2つ選択しなさい。
+
+A. 同じRMAN DUPLICATEコマンドを使用して、2つ以上のPDBを複製できます。
+B. PDBを複製する場合、PDBに属するすべてのテーブルスペースを複製する必要があります。
+C. 補助インスタンスは、ENABLE_PLUGGABLE_DATABASE = TRUEで自動的に作成されます。
+D. SYSDBAまたはSYSBACKUPを持つユーザーは、RMANでPDBにログインして複製する必要があります。
+E. CDB$ROOTとPDB$SEEDは自動的に複製されます。
+
+ANSWER A, E
+
+
+//=============================================================================
+// 47
+//=============================================================================
+
+Orcale 18c以降に利用可能となったRapid Home Provisioning（RHP）について正しい正しい説明を2つ選択しなさい。
+
+A. Oracle Databaseサービスです。
+B. Oracle Databaseホームのアップグレードには使用できません。
+C. アプリケーションのプロビジョニングに使用できます。
+D. Oracle Restartを含むGrid Infrastructureホームにパッチを適用するために使用できます。
+E. ミドルウェアのプロビジョニングに使用できます。
+
+ANSWER A, D, (C)
+
+
+//=============================================================================
+// 48
+//=============================================================================
+
+この構成を調べます。
+
+1. CDB1はコンテナーデータベースです。
+2. 共通ユーザー接頭辞はC##です。
+3. PDB1は、CDB1に含まれているプラ​​ガブルデータベースです。
+4. APP1_ROOTは、CDB1に含まれているアプリケーションコンテナーです。
+5. APP1_PDB1は、APP1_ROOTに含まれているアプリケーションPDBです。
+
+次のコマンドは正常に実行されました。
+
+$ sqlplus sys/oracle_4U@localhost:1521/cdb1 as sysdba
+
+SQL> CREATE USER c##user1 identified by oracle_4U container=all;
+User created.
+
+SQL> ALTER SESSION SET CONTAINER=pdb1;
+Session altered.
+
+SQL> CREATE USER p1_user1 identified by pracle_4U;
+User Created.
+
+SQL> ALTER SESSION SET CONTAINER=app1_root;
+Session altered.
+
+SQL> ALTER PLUGGABLE DATABASE APPLICATION app1_cdb1_app BEGIN INSTALL '1.0';
+Session altered.
+
+SQL> CREATE USER app1_user1 IDENTIFIED BY oracle_4U;
+User Created.
+
+SQL> ALTER PLUGGABLE DATABASE APPLICATION app1_cdb1_app end INSTALL '1.0';
+Pluggable database altered.
+
+正しい説明を2つ選択しなさい。
+
+A. APP1_USER1はPDB1に作成できます。
+B. APP1_USER1はCDB1に作成できます。
+C. APP1_USER1は、APP1_ROOTに含まれる各アプリケーションPDBで異なる権限を持つことができます。
+D. C##AP​​P_USER1はCDB1に作成できます。
+E. P1_USER1はCDB1に作成できます。
+F. C##USER1は、CDB1のすべてのPDBで同じ特権とロールを付与されます。
+
+ANSWER D, (A, C)
+
+
+//=============================================================================
+// 49
+//=============================================================================
+
+Oracle Database環境で常に考慮または実装する必要があるパフォーマンス計画のファセットとして正しいものを2つ選択しなさい。
+
+A. すべてのテーブルの主キーを定義して、すべてのクエリを高速化する。
+B. チェック制約を使用して更新を高速化する。
+C. 結合を高速化するためにすべてのテーブルの外部キーを定義する。
+D. 物理データモデル。
+E. ストレージ構成。
+
+Which two are facets of performance planning that should always be considered or implemented for an Oracle Database environment? (Choose two.)
+A. defining primary keys for all tables to speed up all queries
+B. using check constraints to speed up updates
+C. defining foreign keys for all tables to speed up joins
+D. the physical data model
+E. the configuration of storage arrays
+
+ANSWER D, E
+
+
+//=============================================================================
+// 50
+//=============================================================================
+
+Database Upgrade Assistant（DBUA）によって実行される3つのアクションはどれですか？
+
+A. utlrp.sqlを使用して、保存されているすべてのPL / SQLコードを再コンパイルします。
+B. ごみ箱を空にします。
+C. 前提条件チェックを実行して、Oracleデータベースがアップグレードの準備ができているかどうかを確認します。
+D. アップグレードを開始する前に、すべてのユーザーテーブルスペースを「読み取り専用」に設定します。
+E. AUDSYSスキーマとAUDIT_ADMINおよびAUDIT_VIEWERロールを削除します。
+F. 必要に応じて、アップグレード要件を満たすためにテーブルスペースのサイズを増やします。
+
+ANSWER B, C, F
+
+
+//=============================================================================
+// 51
+//=============================================================================
+
+テープドライブが2つしかない場合に、メディアマネージャーを使用してバックアップをテープに書き込むときのRMANバックアップについて正しい説明を2つ選択しなさい。
+
+A. RMAN圧縮が構成されていない場合でも、SBTテープ圧縮を使用できます。
+B. この構成でSBTデバイスに書き込まれるバックアップセットには、最大2つのバックアップピースを含めることができます。
+C. この構成でSBTデバイスに書き込まれるバックアップには、最大2つのバックアップセットを含めることができます。
+D. SBTテープ圧縮とRMANバックアップ圧縮を並行して使用する必要があります。
+E. SBTデバイスは、PARALLELISM 2を使用して両方のテープドライブを同時に使用できるように構成する必要があります。
+
+ANSWER A, E
+
+
+//=============================================================================
+// 52
+//=============================================================================
+
+あなたはスタンドアロンサーバー用のOracleグリッドインフラストラクチャとOracleデータベースをサーバーに初めてインストールする予定です。
+このコマンドとその結果を調べます。
+
+# id oracle
+uid=54321 (oracle) gid=54321(oinstall) group=54321(oinstall), 54322(dba)
+
+正しい説明を2つ選択しなさい。
+
+A. oracleはOracle Inventoryの所有者になります。
+B. oracleは、すべてのOracle Databaseインストールの所有者でなければなりません。
+C. oracleはOracle Databaseインストールを所有できますが、Oracle Grid Infrastructureインストールは所有できません。
+D. Oracle Databaseソフトウェアをインストールすると、oracleにSYSASM権限が付与されます。
+E. ユーザーアカウントoracleおよびグループoinstallは、すべてのOracleソフトウェアのインストールに使用できます。
+
+ANSWER A, E
+
+
+//=============================================================================
+// 53
+//=============================================================================
+
+この構成を調べます。
+
+1. CDB1は、ARCHIVELOGモードで実行されるコンテナーデータベースです。
+2. CDB1の制御ファイルは'/u01/app/oracle/oradata/CDB1/controlfile/controlfile01.ctl'および'/u02/app/oracle/fast_recover_area/cdb1/CDB1/controlfile02.ctl'に多重化されています。
+3. CDB1の唯一のバックアップは、CONTROLFILE AUTOBACKUPがOFFのときに行われました。
+4. スナップショット制御ファイル名は'/u01/app/oracle/product/12.2.0.1/db_1/dbs/snapcf_cdb1.f'です。
+  
+CDB1が開いている間、'/u02/app/oracle/fast_recover_area/cdb1/CDB1/controlfile02.ctl'が誤って削除されました。
+この重大な障害から回復するために、次のコマンドを実行しました。
+
+$ rman target sys/oracle_4U@localhost:1521/cdb1
+
+RMAN> SHUTDOWN ABORT
+...
+Oracle instance shut down
+
+RMAN> STARTUP NOMOUNT
+
+RMAN> RMAN RESTORE CONTROLFILE FROM
+  '/u01/app/oracle/oradata/CDB1/controlfile/controlfile01.ctl';
+
+結果はどうなりますか？
+
+A. '$ORACLE_HOME/dbs/cdb1/CDB1/controlfile02.ctl'が作成されます
+B. '/u01/app/oralce/oradata/CDB1/controlfile/controlfile02.ctl'が作成されます。
+C. '/u02/app/oracle/fast_recover_area/cdb1/CDB1/controlfile02.ctl'が再作成されます。
+D. '/u01/app/oracle/product/12.2.0.1/db_1/dbs/snapcf_cdb1control02.ctl'が作成されます。
+E. 制御ファイルの自動バックアップがないため、失敗します。
+
+ANSWER C
+
+
+//=============================================================================
+// 54
+//=============================================================================
+
+これらのアクションを調べます。
+
+1. リカバリカタログ用の新しいデータベースを作成します。
+2. リカバリカタログ用に、カタログデータベースに十分なスペースのあるテーブルスペースを作成します。
+3. カタログデータベースのARCHIVELOGモードを構成します。
+4. ユーザーを作成して、カタログが含まれるテーブルスペースにクォータを持つリカバリカタログスキーマを所有します。
+5. RECOVERY_CATALOG_OWNERロールをリカバリカタログスキーマの所有者に付与します。
+6. SYSBACKUP権限をリカバリカタログスキーマの所有者に付与します。
+
+CREATE CATALOGコマンドを実行する前に実行する必要がある最小アクションはどれですか？
+
+A. 2, 4, 5, 6
+B. 1, 2, 3, 4, 5, 6
+C. 1, 2, 4, 5
+D. 2, 4, 5
+E. 1, 3, 4, 5
+
+ANSWER C
+
+
+//=============================================================================
+// 55
+//=============================================================================
+
+Oracle 19c以降のリリースでスナップショットを使用してプラガブルデータベース（PDB）を作成する場合、正しい説明を2つ選択しなさい。
+
+A. PDBスナップショットは、常にソースPDBの完全なコピーです。
+B. PDBスナップショットは、常にソースPDBのスパースコピー(部分的に空のファイルを実際のファイルシステム上で少ない消費容量で効率的に保存する仕組み)です。
+C. スナップショットコピーPDBは、特定のファイルシステムにのみ保存できるストレージスナップショットに依存しています。
+D. PDBスナップショットは、任意のファイルシステムに格納できるストレージスナップショットに依存しています。
+E. PDBスナップショットは、特定のファイルシステムにのみ保存できるストレージスナップショットに依存しています。
+F. スナップショットコピーPDBは、任意のファイルシステムに格納できるストレージスナップショットに依存しています。
+G. スナップショットコピーPDBは、スタンドアロンクローンPDBから作成できます。
+
+ANSWER C, E
+
+
+//=============================================================================
+// 56
+//=============================================================================
+
+Oracle Database Configuration Assistant（DBCA）テンプレートについて正しい説明を2つ選択しなさい。
+
+A. トランザクション処理の汎用テンプレートは、同時実行性と回復性が重要な基準である場合に最適です。
+B. Oracle DBCAテンプレートは、論理構造のみを保存でき、データベースファイルは保存できません。
+C. 新しいテンプレートは、既存のユーザー作成テンプレートを変更することによってのみ作成できます。
+D. データウェアハウステンプレートは、トランザクションの応答時間が重要な基準である場合に最適です。
+E. Oracle DBCAテンプレートを使用して、新しいデータベースを作成し、既存のデータベースを複製できます。
+
+ANSWER A, E
+
+
+//=============================================================================
+// 57
+//=============================================================================
+
+SALES_ROOTアプリケーションコンテナには、2つのアプリケーションPDBがあります。
+SALES_APPアプリケーションには、2つのPDBに共通のテーブルFIN.REVENUEがあります。
+このクエリとその出力を調べます。
+
+SELECT containers_default, container_map, table_name
+  FROM dba_tables WHERE owner='FIN';
+
+CONTAINERS_DEFAULT  CONTAINER_MAP  CONTAINER_MAP_OBJECT  TABLE_NAME 
+------------------- -------------- --------------------- -----------
+NO                  YES            NO                    REVENUE
+NO                  NO             YES                   MAPTABLE
+
+正しい説明を2つ選択しなさい。
+
+A. CONTAINERS句は、REVENUEテーブルのクエリでは使用できません。
+B. REVENUEテーブルは、リストパーティションテーブルである必要があります。
+C. MAPTABLEテーブルは、REVENUEテーブルに一般的に使用される列の論理パーティションキーを定義します。
+D. MAPTABLEテーブルは、メタデータにリンクされたテーブルです。
+E. REVENUEテーブルのコンテナマップは存在しますが、有効になっていません。
+F. REVENUEテーブルパーティションは、PDB間で自動的にプルーニングされません。
+
+ANSWER
+
 }());
 
 (function(){
